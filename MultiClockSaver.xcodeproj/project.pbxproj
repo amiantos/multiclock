@@ -7,25 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44C17D582773C947005E171A /* ClocksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClocksController.swift */; };
 		44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */; };
-		44E5F5012772BFA4007249E2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F5002772BFA4007249E2 /* GameScene.sks */; };
-		44E5F5032772BFA4007249E2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F5022772BFA4007249E2 /* Actions.sks */; };
 		44E5F5052772BFA4007249E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5042772BFA4007249E2 /* GameScene.swift */; };
 		44E5F5072772BFA4007249E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5062772BFA4007249E2 /* ViewController.swift */; };
 		44E5F5092772BFA6007249E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F5082772BFA6007249E2 /* Assets.xcassets */; };
 		44E5F50C2772BFA6007249E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F50A2772BFA6007249E2 /* Main.storyboard */; };
+		44E5F5142772CB2D007249E2 /* ClockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5132772CB2D007249E2 /* ClockNode.swift */; };
+		44E5F5162772CB87007249E2 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5152772CB87007249E2 /* Textures.swift */; };
+		44E5F5182772D315007249E2 /* NumberClusterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5172772D315007249E2 /* NumberClusterNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44C17D572773C947005E171A /* ClocksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClocksController.swift; sourceTree = "<group>"; };
+		44C17D592773CD48005E171A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44E5F4FB2772BFA4007249E2 /* MultiClockSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiClockSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44E5F5002772BFA4007249E2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		44E5F5022772BFA4007249E2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		44E5F5042772BFA4007249E2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		44E5F5062772BFA4007249E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44E5F5082772BFA6007249E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44E5F50B2772BFA6007249E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44E5F50D2772BFA6007249E2 /* MultiClockSaver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiClockSaver.entitlements; sourceTree = "<group>"; };
+		44E5F5132772CB2D007249E2 /* ClockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockNode.swift; sourceTree = "<group>"; };
+		44E5F5152772CB87007249E2 /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textures.swift; sourceTree = "<group>"; };
+		44E5F5172772D315007249E2 /* NumberClusterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberClusterNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +47,7 @@
 		44E5F4F22772BFA4007249E2 = {
 			isa = PBXGroup;
 			children = (
+				44C17D592773CD48005E171A /* .gitignore */,
 				44E5F4FD2772BFA4007249E2 /* MultiClockSaver */,
 				44E5F4FC2772BFA4007249E2 /* Products */,
 			);
@@ -59,13 +65,15 @@
 			isa = PBXGroup;
 			children = (
 				44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */,
-				44E5F5002772BFA4007249E2 /* GameScene.sks */,
-				44E5F5022772BFA4007249E2 /* Actions.sks */,
 				44E5F5042772BFA4007249E2 /* GameScene.swift */,
 				44E5F5062772BFA4007249E2 /* ViewController.swift */,
 				44E5F5082772BFA6007249E2 /* Assets.xcassets */,
 				44E5F50A2772BFA6007249E2 /* Main.storyboard */,
 				44E5F50D2772BFA6007249E2 /* MultiClockSaver.entitlements */,
+				44E5F5132772CB2D007249E2 /* ClockNode.swift */,
+				44E5F5152772CB87007249E2 /* Textures.swift */,
+				44E5F5172772D315007249E2 /* NumberClusterNode.swift */,
+				44C17D572773C947005E171A /* ClocksController.swift */,
 			);
 			path = MultiClockSaver;
 			sourceTree = "<group>";
@@ -128,9 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44E5F5012772BFA4007249E2 /* GameScene.sks in Resources */,
 				44E5F5092772BFA6007249E2 /* Assets.xcassets in Resources */,
-				44E5F5032772BFA4007249E2 /* Actions.sks in Resources */,
 				44E5F50C2772BFA6007249E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44E5F5142772CB2D007249E2 /* ClockNode.swift in Sources */,
+				44E5F5162772CB87007249E2 /* Textures.swift in Sources */,
 				44E5F5072772BFA4007249E2 /* ViewController.swift in Sources */,
+				44E5F5182772D315007249E2 /* NumberClusterNode.swift in Sources */,
+				44C17D582773C947005E171A /* ClocksController.swift in Sources */,
 				44E5F5052772BFA4007249E2 /* GameScene.swift in Sources */,
 				44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */,
 			);
@@ -289,6 +299,7 @@
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -316,6 +327,7 @@
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
