@@ -8,6 +8,8 @@
 import SpriteKit
 
 class ClockNode: SKNode {
+    public var debug: Bool = false
+    
     private var minuteRotation: CGFloat = 0
     private var hourRotation: CGFloat = 0
     
@@ -40,12 +42,49 @@ class ClockNode: SKNode {
     
     public func rotate(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
         
-        let rotateAction = SKAction.rotate(toAngle: minuteDegrees.degreesToRadians(), duration: 1, shortestUnitArc: false)
-        minuteHandNode.run(rotateAction)
+        minuteHandNode.removeAllActions()
+        hourHandNode.removeAllActions()
         
-        let rotateAction2 = SKAction.rotate(toAngle: hourDegrees.degreesToRadians(), duration: 1, shortestUnitArc: false)
-        hourHandNode.run(rotateAction2)
+        // rotate minute hand
+        let radianDifference = getRadianDifference(startDegrees: minuteHandNode.zRotation.radiansToDegrees(), endDegrees: -minuteDegrees)
+        let duration = radianDifference / 0.8
+        if radianDifference >= 1 {
+            minuteHandNode.run(SKAction.rotate(byAngle: -radianDifference, duration: duration))
+        }
         
+        // rotate hour hand
+        let radianDifferenceHour = getRadianDifference(startDegrees: hourHandNode.zRotation.radiansToDegrees(), endDegrees: -hourDegrees)
+        let durationHour = radianDifferenceHour / 0.8
+        if radianDifferenceHour >= 1 {
+            hourHandNode.run(SKAction.rotate(byAngle: -radianDifferenceHour, duration: durationHour))
+        }
+        
+        
+    }
+    
+    private func getRadianDifference(startDegrees: CGFloat, endDegrees: CGFloat) -> CGFloat {
+        
+        if debug {
+            print("Current degrees \(startDegrees)")
+            print("Destination degrees \(endDegrees)")
+        }
+        var distanceInDegrees: CGFloat = 0.0
+        if endDegrees >= startDegrees {
+            distanceInDegrees = endDegrees - startDegrees
+        } else {
+            distanceInDegrees = 360-startDegrees+endDegrees
+        }
+        
+        if abs(Int(startDegrees - endDegrees)) < 1 {
+            return 0
+        }
+        
+        if debug {
+            print("Difference in degrees? \(distanceInDegrees)")
+            print("Difference in radians? \(distanceInDegrees.degreesToRadians())")
+        }
+    
+        return distanceInDegrees.degreesToRadians()
     }
     
 }

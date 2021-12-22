@@ -35,7 +35,16 @@ class GameScene: SKScene {
     }
     
     override func keyUp(with event: NSEvent) {
-        controller?.showCurrentTime()
+        if let character = event.characters {
+            switch character {
+            case "t":
+                controller?.showCurrentTime()
+            case "d":
+                controller?.returnToMidnight()
+            default:
+                break
+            }
+        }
     }
     
     

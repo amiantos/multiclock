@@ -17,6 +17,8 @@ class ClocksController {
             clusters.append(cluster)
             clocks.append(contentsOf: cluster.clocks)
         }
+        
+        clocks[0].debug = true
     }
     
     public func showCurrentTime() {
@@ -30,5 +32,11 @@ class ClocksController {
         clusters[1].setNumber(Int(array[1])!)
         clusters[2].setNumber(Int(array[2])!)
         clusters[3].setNumber(Int(array[3])!)
+    }
+    
+    public func returnToMidnight() {
+        clocks.forEach { clock in
+            clock.rotate(minuteDegrees: 0, hourDegrees: 0)
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44C17D582773C947005E171A /* ClocksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClocksController.swift */; };
+		44C17D5B2773D45C005E171A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
 		44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */; };
 		44E5F5052772BFA4007249E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5042772BFA4007249E2 /* GameScene.swift */; };
 		44E5F5072772BFA4007249E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5062772BFA4007249E2 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		44C17D572773C947005E171A /* ClocksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClocksController.swift; sourceTree = "<group>"; };
 		44C17D592773CD48005E171A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		44C17D5A2773D45C005E171A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		44E5F4FB2772BFA4007249E2 /* MultiClockSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiClockSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44E5F5042772BFA4007249E2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				44E5F5152772CB87007249E2 /* Textures.swift */,
 				44E5F5172772D315007249E2 /* NumberClusterNode.swift */,
 				44C17D572773C947005E171A /* ClocksController.swift */,
+				44C17D5A2773D45C005E171A /* Extensions.swift */,
 			);
 			path = MultiClockSaver;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				44E5F5142772CB2D007249E2 /* ClockNode.swift in Sources */,
 				44E5F5162772CB87007249E2 /* Textures.swift in Sources */,
 				44E5F5072772BFA4007249E2 /* ViewController.swift in Sources */,
+				44C17D5B2773D45C005E171A /* Extensions.swift in Sources */,
 				44E5F5182772D315007249E2 /* NumberClusterNode.swift in Sources */,
 				44C17D582773C947005E171A /* ClocksController.swift in Sources */,
 				44E5F5052772BFA4007249E2 /* GameScene.swift in Sources */,
