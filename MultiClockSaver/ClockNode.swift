@@ -48,14 +48,14 @@ class ClockNode: SKNode {
         // rotate minute hand
         let radianDifference = getRadianDifference(startDegrees: minuteHandNode.zRotation.radiansToDegrees(), endDegrees: -minuteDegrees)
         let duration = radianDifference / 0.8
-        if radianDifference >= 1 {
+        if radianDifference >= 0.1 {
             minuteHandNode.run(SKAction.rotate(byAngle: -radianDifference, duration: duration))
         }
         
         // rotate hour hand
         let radianDifferenceHour = getRadianDifference(startDegrees: hourHandNode.zRotation.radiansToDegrees(), endDegrees: -hourDegrees)
         let durationHour = radianDifferenceHour / 0.8
-        if radianDifferenceHour >= 1 {
+        if radianDifferenceHour >= 0.1 {
             hourHandNode.run(SKAction.rotate(byAngle: -radianDifferenceHour, duration: durationHour))
         }
         
@@ -75,7 +75,7 @@ class ClockNode: SKNode {
             distanceInDegrees = 360-startDegrees+endDegrees
         }
         
-        if abs(Int(startDegrees - endDegrees)) < 1 {
+        if abs(startDegrees - endDegrees) < 0.1 {
             return 0
         }
         

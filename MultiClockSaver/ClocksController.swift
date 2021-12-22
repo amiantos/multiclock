@@ -39,4 +39,29 @@ class ClocksController {
             clock.rotate(minuteDegrees: 0, hourDegrees: 0)
         }
     }
+    
+    public func moveAll(degrees: CGFloat) {
+        clocks.forEach { clock in
+            clock.rotate(minuteDegrees: degrees, hourDegrees: degrees)
+        }
+    }
+    
+    public func setAllToCurrentTime() {
+        let date = Date()
+        let minute = Int(date.get(.minute))!
+        var hour = Int(date.get(.hour))!
+        
+        hour = hour > 12 ? hour - 12 : hour
+        
+        let hourFloat = CGFloat(hour) + (CGFloat(minute) / 60)
+        
+        print("hour float: \(hourFloat)")
+        
+        clocks.forEach { clock in
+            clock.rotate(
+                minuteDegrees: -CGFloat(((360/60)*minute)),
+                hourDegrees: -CGFloat(((360/12)*hourFloat))
+            )
+        }
+    }
 }

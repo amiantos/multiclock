@@ -41,6 +41,12 @@ class GameScene: SKScene {
                 controller?.showCurrentTime()
             case "d":
                 controller?.returnToMidnight()
+            case "x":
+                controller?.moveAll(degrees: -45)
+            case "c":
+                controller?.moveAll(degrees: -225)
+            case "r":
+                controller?.setAllToCurrentTime()
             default:
                 break
             }
