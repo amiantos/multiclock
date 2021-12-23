@@ -30,7 +30,8 @@ class ClockNode: SKNode {
         clockFaceNode.size = size
         clockFaceNode.zPosition = -2
         clockFaceNode.colorBlendFactor = 1
-        clockFaceNode.color = NSColor(red: 230 / 255, green: 230 / 255, blue: 230 / 255, alpha: 0.1)
+        clockFaceNode.color = .red
+        clockFaceNode.alpha = 0.3
         
         hourHandNode.colorBlendFactor = 1
         hourHandNode.color = .white
@@ -41,6 +42,16 @@ class ClockNode: SKNode {
         minuteHandNode.color = .white
         addChild(minuteHandNode)
         minuteHandNode.size = size
+        
+        
+        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
+            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5)
+        ])))
         
     }
     
