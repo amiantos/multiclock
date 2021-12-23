@@ -29,14 +29,16 @@ class ClockNode: SKNode {
         addChild(clockFaceNode)
         clockFaceNode.size = size
         clockFaceNode.zPosition = -2
+        clockFaceNode.colorBlendFactor = 1
+        clockFaceNode.color = NSColor(red: 230 / 255, green: 230 / 255, blue: 230 / 255, alpha: 0.1)
         
         hourHandNode.colorBlendFactor = 1
-        hourHandNode.color = .black
+        hourHandNode.color = .white
         addChild(hourHandNode)
         hourHandNode.size = size
         
         minuteHandNode.colorBlendFactor = 1
-        minuteHandNode.color = .black
+        minuteHandNode.color = .white
         addChild(minuteHandNode)
         minuteHandNode.size = size
         
@@ -60,8 +62,12 @@ class ClockNode: SKNode {
         if radianDifferenceHour >= 0.1 {
             hourHandNode.run(SKAction.rotate(byAngle: -radianDifferenceHour, duration: durationHour))
         }
-        
-        
+    }
+    
+    public func rotate(by degrees: CGFloat) {
+        let radians = degrees.degreesToRadians()
+        hourHandNode.run(SKAction.rotate(byAngle: -radians, duration: radians / movementSpeed))
+        minuteHandNode.run(SKAction.rotate(byAngle: -radians, duration: radians / movementSpeed))
     }
     
     private func getRadianDifference(startDegrees: CGFloat, endDegrees: CGFloat) -> CGFloat {

@@ -15,7 +15,7 @@ class GameScene: SKScene {
     private var backgroundNode: SKShapeNode?
     
     override func sceneDidLoad() {
-        backgroundColor = .white
+        backgroundColor = .black
         
         controller = ClocksController()
         
@@ -44,9 +44,11 @@ class GameScene: SKScene {
             case "x":
                 controller?.moveAll(degrees: -45)
             case "c":
-                controller?.moveAll(degrees: -225)
+                controller?.moveAll(minuteDegrees: -45, hourDegrees: -225)
             case "r":
                 controller?.setAllToCurrentTime()
+            case "p":
+                controller?.rotateAll(by: 720)
             default:
                 break
             }
