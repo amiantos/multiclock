@@ -8,6 +8,8 @@
 import SpriteKit
 
 class ClockNode: SKNode {
+    private let movementSpeed: CGFloat = 1
+    
     public var debug: Bool = false
     
     private var minuteRotation: CGFloat = 0
@@ -47,14 +49,14 @@ class ClockNode: SKNode {
         
         // rotate minute hand
         let radianDifference = getRadianDifference(startDegrees: minuteHandNode.zRotation.radiansToDegrees(), endDegrees: -minuteDegrees)
-        let duration = radianDifference / 0.8
+        let duration = radianDifference / movementSpeed
         if radianDifference >= 0.1 {
             minuteHandNode.run(SKAction.rotate(byAngle: -radianDifference, duration: duration))
         }
         
         // rotate hour hand
         let radianDifferenceHour = getRadianDifference(startDegrees: hourHandNode.zRotation.radiansToDegrees(), endDegrees: -hourDegrees)
-        let durationHour = radianDifferenceHour / 0.8
+        let durationHour = radianDifferenceHour / movementSpeed
         if radianDifferenceHour >= 0.1 {
             hourHandNode.run(SKAction.rotate(byAngle: -radianDifferenceHour, duration: durationHour))
         }
