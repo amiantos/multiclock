@@ -15,6 +15,7 @@ enum AnimationTypes {
     case currentTimePrint
     case currentTimeClock
     case wait
+    case displayPattern
 }
 
 class Animation {
@@ -25,6 +26,7 @@ class Animation {
     public var minuteDegrees: CGFloat = 0.0
     public var hourDegrees: CGFloat = 0.0
     public var delay: TimeInterval = 0
+    public var pattern: [Int: [(CGFloat, CGFloat)]] = [:]
     
     init(animation: AnimationTypes) {
         animationType = animation
@@ -45,6 +47,8 @@ class Animation {
             return positionBothHands(clocks: clocks)
         case .spinBothHandsWithDelay:
             return spinBothHandsWithDelay(clusters: clusters)
+        case .displayPattern:
+            return displayPattern(clusters: clusters)
         }
         
     }
@@ -162,6 +166,24 @@ class Animation {
         return SKAction.group(actions)
     }
     
+    private func displayPattern(clusters: [NumberClusterNode]) -> SKAction {
+        Log.debug("Displaying pattern...")
+        
+        var actions: [SKAction] = []
+        
+        for (index, cluster) in clusters.enumerated() {
+            if let patternConfig = self.pattern[index] {
+                for (index, item) in patternConfig.enumerated() {
+                    let clock = cluster.clocks[index]
+                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0))
+                }
+            }
+            
+        }
+        
+        return SKAction.group(actions)
+    }
+    
     // Utils
     
     private func getActionGroupForPosition(clock: ClockNode, minuteDegrees: CGFloat, hourDegrees: CGFloat) -> SKAction {
@@ -258,7 +280,36 @@ class Animation {
         animation.delay = delay
         return animation
     }
+    
+    static func display(pattern: [Int: [(CGFloat, CGFloat)]]) -> Animation {
+        let animation = Animation(animation: .displayPattern)
+        animation.pattern = pattern
+        return animation
+    }
 }
+
+let testPattern: [Int: [(CGFloat, CGFloat)]] = [
+    0: [
+        (-105, -105), (-115, -115),
+        (-90, -90), (-90, -90),
+        (-75, -75), (-65, -65),
+    ],
+    1: [
+        (-125, -125), (-150, -150),
+        (-90, -90), (-90, -90),
+        (-55, -55), (-30, -30),
+    ],
+    2: [
+        (-210, -210), (-235, -235),
+        (-270, -270), (-270, -270),
+        (-330, -330), (-305, -305),
+    ],
+    3: [
+        (-245, -245), (-255, -255),
+        (-270, -270), (-270, -270),
+        (-295, -295), (-285, -285),
+    ],
+]
 
 let numberConfigs: [Int: [(CGFloat, CGFloat)]] = [
     // Tuple format is (hour, minute)

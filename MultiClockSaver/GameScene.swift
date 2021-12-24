@@ -53,7 +53,14 @@ class GameScene: SKScene {
             case "p":
                 controller?.rotateAll(by: 360)
             case "o":
-                controller?.testQueue()
+                controller?.queue(animations: [
+                    Animation.display(pattern: testPattern),
+                    Animation.wait(duration: 5),
+                    Animation.spinBothHands(by: 360),
+                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+                    Animation.spinBothHands(by: 360),
+                    Animation.currentTimePrint(),
+                ])
             default:
                 break
             }

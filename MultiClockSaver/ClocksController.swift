@@ -81,7 +81,7 @@ class ClocksController {
         } else if timeSinceLastAnimation >= 20 && !isAnimating {
             Log.debug("Displaying random animation...")
             
-            let number = Int.random(in: 1...4)
+            let number = Int.random(in: 1...5)
             switch number {
             case 1:
                 // this one is pretty cool imho
@@ -101,6 +101,15 @@ class ClocksController {
                 queue(animations: [
                     Animation.spinBothHandsWithDelay(by: 360, delay: 1)
                 ])
+            case 5:
+                queue(animations: [
+                    Animation.display(pattern: testPattern),
+                    Animation.wait(duration: 5),
+                    Animation.spinBothHands(by: 360),
+                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+                    Animation.spinBothHands(by: 360),
+                    Animation.currentTimePrint(),
+                ])
             default:
                 queue(animations: [
                     Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
@@ -108,7 +117,7 @@ class ClocksController {
                     Animation.currentTimeClock(),
                     Animation.wait(duration: 5),
                     Animation.positionBothHands(minuteDegrees: -225, hourDegrees: -225),
-                    Animation.spinBothHands(by: 180),
+                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
                     Animation.currentTimePrint(),
                 ])
             }
@@ -164,7 +173,7 @@ class ClocksController {
         scene?.run(actionGroup)
     }
     
-    private func queue(animations: [Animation]) {
+    public func queue(animations: [Animation]) {
         animationQueue.append(contentsOf: animations)
         startAnimationQueueIfNeeded()
     }
