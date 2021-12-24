@@ -23,6 +23,8 @@ class ClocksController {
     
     private var lastTimeDisplayed: String = "0000"
     
+    private var timeSinceLastAnimation: Int = 30
+    
     init() {
         for _ in 1...4 {
             let cluster = NumberClusterNode(size: CGSize(width: 480, height: 720))
@@ -60,27 +62,63 @@ class ClocksController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hhmm"
         let timeString = dateFormatter.string(from: date)
+        
+        timeSinceLastAnimation += 1
 
-        if timeString != lastTimeDisplayed {
+        if timeString != lastTimeDisplayed && !isAnimating {
             lastTimeDisplayed = timeString
-            clocks.forEach { clock in
-                clock.removeAllActions()
-                clock.hourHandNode.removeAllActions()
-                clock.minuteHandNode.removeAllActions()
-            }
-            animationQueue.removeAll()
             
-            run([
-                Animation.spinBothHands(by: 180),
-                Animation.currentTimePrint(),
-            ])
+            if timeSinceLastAnimation <= 3 {
+                queue(animations: [
+                    Animation.currentTimePrint(),
+                ])
+            } else {
+                queue(animations: [
+                    Animation.spinBothHands(by: 180),
+                    Animation.currentTimePrint(),
+                ])
+            }
+        } else if timeSinceLastAnimation >= 20 && !isAnimating {
+            Log.debug("Displaying random animation...")
+            
+            let number = Int.random(in: 1...4)
+            switch number {
+            case 1:
+                // this one is pretty cool imho
+                queue(animations: [
+                    Animation.positionBothHands(minuteDegrees: -225, hourDegrees: -225),
+                    Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
+                    Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -45),
+                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+                    Animation.currentTimePrint(),
+                ])
+            case 2:
+                // simple time delay 2x full sweep
+                queue(animations: [
+                    Animation.spinBothHandsWithDelay(by: 720, delay: 0.5)
+                ])
+            case 3:
+                queue(animations: [
+                    Animation.spinBothHandsWithDelay(by: 360, delay: 1)
+                ])
+            default:
+                queue(animations: [
+                    Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
+                    Animation.spinBothHandsWithDelay(by: 180, delay: 0.2),
+                    Animation.currentTimeClock(),
+                    Animation.wait(duration: 5),
+                    Animation.positionBothHands(minuteDegrees: -225, hourDegrees: -225),
+                    Animation.spinBothHands(by: 180),
+                    Animation.currentTimePrint(),
+                ])
+            }
         }
     }
     
     private func startTimer() {
         stopTimer()
         
-        run([
+        queue(animations: [
             Animation.currentTimePrint(),
         ])
 
@@ -104,6 +142,7 @@ class ClocksController {
     // MARK: - Animations
     
     @objc func animationCompleted() {
+        timeSinceLastAnimation = 0
         animationsCompleted += 1
         if animationsCompleted == 48 {
             Log.debug("All animations completed!")
@@ -121,10 +160,11 @@ class ClocksController {
     private func run(_ animation: Animation) {
         let actionGroup = animation.actions(clocks: clocks, clusters: clusters)
         isAnimating = true
+        timeSinceLastAnimation = 0
         scene?.run(actionGroup)
     }
     
-    private func run(_ animations: [Animation]) {
+    private func queue(animations: [Animation]) {
         animationQueue.append(contentsOf: animations)
         startAnimationQueueIfNeeded()
     }
@@ -143,31 +183,31 @@ class ClocksController {
     // Helper functions for manually triggering animations
     
     public func showCurrentTime() {
-        run([Animation.currentTimePrint()])
+        queue(animations: [Animation.currentTimePrint()])
     }
     
     public func returnToMidnight() {
-        run([Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
+        queue(animations: [Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
     }
     
     public func moveAll(degrees: CGFloat) {
-        run([Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees)])
+        queue(animations: [Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees)])
     }
     
     public func moveAll(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
-        run([Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees)])
+        queue(animations: [Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees)])
     }
     
     public func setAllToCurrentTime() {
-        run([Animation.currentTimeClock()])
+        queue(animations: [Animation.currentTimeClock()])
     }
     
     public func rotateAll(by degrees: CGFloat) {
-        run([Animation.spinBothHands(by: degrees)])
+        queue(animations: [Animation.spinBothHands(by: degrees)])
     }
     
     public func testQueue() {
-        run([
+        queue(animations: [
             Animation.spinBothHands(by: 360),
             Animation.currentTimePrint(),
         ])
