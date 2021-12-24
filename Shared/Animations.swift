@@ -35,7 +35,7 @@ class Animation {
         animationType = animation
     }
     
-    public func actions(clocks: [ClockNode], clusters: [NumberClusterNode]) -> SKAction {
+    public func actions(clocks: [ClockNode], clusters: [ClusterNode]) -> SKAction {
         
         switch animationType {
         case .spinBothHands:
@@ -82,7 +82,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func currentTimePrint(clusters: [NumberClusterNode]) -> SKAction {
+    private func currentTimePrint(clusters: [ClusterNode]) -> SKAction {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hhmm"
@@ -134,7 +134,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func spinBothHandsWithDelay(clusters: [NumberClusterNode]) -> SKAction {
+    private func spinBothHandsWithDelay(clusters: [ClusterNode]) -> SKAction {
         Log.debug("Spinning all hands \(self.degrees) degrees, with \(self.delay) seconds delay...")
         var actions: [SKAction] = []
         var currentDelay: TimeInterval = 0
@@ -169,7 +169,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func displayPattern(clusters: [NumberClusterNode]) -> SKAction {
+    private func displayPattern(clusters: [ClusterNode]) -> SKAction {
         Log.debug("Displaying pattern...")
         
         var actions: [SKAction] = []

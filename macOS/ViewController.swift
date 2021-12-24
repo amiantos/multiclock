@@ -20,8 +20,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         if let view = self.skView {
-            // Load the SKScene from 'GameScene.sks'
-            let scene = GameScene(size: view.frame.size)
+            // Load the SKScene from 'ClockScene.sks'
+            let scene = ClockScene(size: view.frame.size)
             
             skView.presentScene(scene)
             

@@ -1,5 +1,5 @@
 //
-//  NumberClusterNode.swift
+//  ClusterNode.swift
 //  MultiClockSaver
 //
 //  Created by Brad Root on 12/21/21.
@@ -10,7 +10,7 @@
 
 import SpriteKit
 
-class NumberClusterNode: SKNode {
+class ClusterNode: SKNode {
     public var clocks: [ClockNode] = []
 
     required init?(coder aDecoder: NSCoder) {

@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  ClockScene.swift
 //  MultiClockSaver
 //
 //  Created by Brad Root on 12/21/21.
@@ -11,16 +11,16 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class ClockScene: SKScene {
     
-    public var controller: ClocksController?
+    public var controller: ClockController?
     
     private var backgroundNode: SKShapeNode?
     
     override func sceneDidLoad() {
         backgroundColor = .black
         
-        controller = ClocksController()
+        controller = ClockController()
         controller?.scene = self
         
         controller?.clusters.forEach({ cluster in

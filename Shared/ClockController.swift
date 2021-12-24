@@ -1,5 +1,5 @@
 //
-//  ClocksController.swift
+//  ClockController.swift
 //  MultiClockSaver
 //
 //  Created by Brad Root on 12/22/21.
@@ -11,8 +11,8 @@
 import Foundation
 import SpriteKit
 
-class ClocksController {
-    public var clusters: [NumberClusterNode] = []
+class ClockController {
+    public var clusters: [ClusterNode] = []
     public var clocks: [ClockNode] = []
     public weak var scene: SKScene?
     
@@ -30,7 +30,7 @@ class ClocksController {
     
     init() {
         for _ in 1...4 {
-            let cluster = NumberClusterNode(size: CGSize(width: 480, height: 720))
+            let cluster = ClusterNode(size: CGSize(width: 480, height: 720))
             clusters.append(cluster)
             clocks.append(contentsOf: cluster.clocks)
         }
