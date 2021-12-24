@@ -35,7 +35,7 @@
 		44E5F5062772BFA4007249E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44E5F5082772BFA6007249E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44E5F50B2772BFA6007249E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		44E5F50D2772BFA6007249E2 /* MultiClockSaver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiClockSaver.entitlements; sourceTree = "<group>"; };
+		44E5F50D2772BFA6007249E2 /* MultiClock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiClock.entitlements; sourceTree = "<group>"; };
 		44E5F5132772CB2D007249E2 /* ClockNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockNode.swift; sourceTree = "<group>"; };
 		44E5F5152772CB87007249E2 /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textures.swift; sourceTree = "<group>"; };
 		44E5F5172772D315007249E2 /* ClusterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterNode.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 				44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */,
 				44E5F5062772BFA4007249E2 /* ViewController.swift */,
 				44E5F50A2772BFA6007249E2 /* Main.storyboard */,
-				44E5F50D2772BFA6007249E2 /* MultiClockSaver.entitlements */,
+				44E5F50D2772BFA6007249E2 /* MultiClock.entitlements */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 44E5F4F62772BFA4007249E2 /* Build configuration list for PBXProject "MultiClockSaver" */;
+			buildConfigurationList = 44E5F4F62772BFA4007249E2 /* Build configuration list for PBXProject "MultiClock" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -332,7 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/MultiClockSaver.entitlements;
+				CODE_SIGN_ENTITLEMENTS = macOS/MultiClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -360,7 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/MultiClockSaver.entitlements;
+				CODE_SIGN_ENTITLEMENTS = macOS/MultiClock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -386,7 +386,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		44E5F4F62772BFA4007249E2 /* Build configuration list for PBXProject "MultiClockSaver" */ = {
+		44E5F4F62772BFA4007249E2 /* Build configuration list for PBXProject "MultiClock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44E5F50E2772BFA6007249E2 /* Debug */,
