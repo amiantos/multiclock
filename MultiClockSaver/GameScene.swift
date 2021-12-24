@@ -18,6 +18,7 @@ class GameScene: SKScene {
         backgroundColor = .black
         
         controller = ClocksController()
+        controller?.scene = self
         
         controller?.clusters.forEach({ cluster in
             addChild(cluster)
@@ -48,7 +49,9 @@ class GameScene: SKScene {
             case "r":
                 controller?.setAllToCurrentTime()
             case "p":
-                controller?.rotateAll(by: 720)
+                controller?.rotateAll(by: 360)
+            case "o":
+                controller?.testQueue()
             default:
                 break
             }

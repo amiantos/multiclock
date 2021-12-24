@@ -6,10 +6,17 @@
 //
 
 import Foundation
+import SpriteKit
 
 class ClocksController {
     public var clusters: [NumberClusterNode] = []
     public var clocks: [ClockNode] = []
+    public weak var scene: SKScene?
+    
+    private var animationsCompleted: Int = 0
+    
+    private var animationQueue: [Animation] = []
+    private var isAnimating: Bool = false
     
     init() {
         for _ in 1...4 {
@@ -19,6 +26,45 @@ class ClocksController {
         }
         
         clocks[0].debug = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(animationCompleted), name: NSNotification.Name("AnimationComplete"), object: nil)
+    }
+    
+    @objc public func animationCompleted() {
+        animationsCompleted += 1
+        if animationsCompleted == 48 {
+            print("All animations completed!")
+            animationsCompleted = 0
+            if animationQueue.isEmpty {
+                print("Animation queue exhausted!")
+                isAnimating = false
+            } else {
+                print("Running next animation...")
+                runNextAnimation()
+            }
+        }
+    }
+    
+    public func run(_ animation: Animation) {
+        let actionGroup = animation.actions(clocks: clocks, clusters: clusters)
+        isAnimating = true
+        scene?.run(actionGroup)
+    }
+    
+    public func run(_ animations: [Animation]) {
+        animationQueue.append(contentsOf: animations)
+        startAnimationQueueIfNeeded()
+    }
+    
+    public func runNextAnimation() {
+        let animation =  animationQueue.removeFirst()
+        run(animation)
+    }
+    
+    public func startAnimationQueueIfNeeded() {
+        if !isAnimating {
+            runNextAnimation()
+        }
     }
     
     public func showCurrentTime() {
@@ -72,8 +118,11 @@ class ClocksController {
     }
     
     public func rotateAll(by degrees: CGFloat) {
-        clocks.forEach { clock in
-            clock.rotate(by: degrees)
-        }
+        let animation = Animation.spinBothHands(by: degrees)
+        run(animation)
+    }
+    
+    public func testQueue() {
+        run([Animation.spinBothHands(by: 90), Animation.spinBothHands(by: 360)])
     }
 }

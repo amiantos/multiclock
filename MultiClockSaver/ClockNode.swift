@@ -8,16 +8,16 @@
 import SpriteKit
 
 class ClockNode: SKNode {
-    private let movementSpeed: CGFloat = 1
+    public let movementSpeed: CGFloat = 1
     
     public var debug: Bool = false
     
     private var minuteRotation: CGFloat = 0
     private var hourRotation: CGFloat = 0
     
-    private let hourHandNode: SKSpriteNode = SKSpriteNode(texture: hourHandTexture)
-    private let minuteHandNode: SKSpriteNode = SKSpriteNode(texture: minuteHandTexture)
-    private let clockFaceNode: SKSpriteNode = SKSpriteNode(texture: clockFaceTexture)
+    public let hourHandNode: SKSpriteNode = SKSpriteNode(texture: hourHandTexture)
+    public let minuteHandNode: SKSpriteNode = SKSpriteNode(texture: minuteHandTexture)
+    public let clockFaceNode: SKSpriteNode = SKSpriteNode(texture: clockFaceTexture)
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -80,6 +80,7 @@ class ClockNode: SKNode {
         hourHandNode.run(SKAction.rotate(byAngle: -radians, duration: radians / movementSpeed))
         minuteHandNode.run(SKAction.rotate(byAngle: -radians, duration: radians / movementSpeed))
     }
+    
     
     private func getRadianDifference(startDegrees: CGFloat, endDegrees: CGFloat) -> CGFloat {
         
