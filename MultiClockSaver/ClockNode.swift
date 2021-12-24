@@ -34,25 +34,27 @@ class ClockNode: SKNode {
         clockFaceNode.color = .gray
         clockFaceNode.alpha = 0.1
         
+        let handColor = NSColor(deviceHue: 0, saturation: 0, brightness: 0.02, alpha: 1)
+        
         hourHandNode.colorBlendFactor = 1
-        hourHandNode.color = .white
+        hourHandNode.color = handColor
         addChild(hourHandNode)
         hourHandNode.size = size
         
         minuteHandNode.colorBlendFactor = 1
-        minuteHandNode.color = .white
+        minuteHandNode.color = handColor
         addChild(minuteHandNode)
         minuteHandNode.size = size
         
         
-//        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
-//            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
-//            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
-//            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
-//            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
-//            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
-//            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5)
-//        ])))
+        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
+            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
+            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5)
+        ])))
         
     }
 
