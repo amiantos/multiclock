@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "44E5F4FA2772BFA4007249E2"
-               BuildableName = "MultiClockSaver.app"
+               BuildableName = "MultiClock macOS.app"
                BlueprintName = "macOS"
                ReferencedContainer = "container:MultiClock.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "44E5F4FA2772BFA4007249E2"
-            BuildableName = "MultiClockSaver.app"
+            BuildableName = "MultiClock macOS.app"
             BlueprintName = "macOS"
             ReferencedContainer = "container:MultiClock.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "44E5F4FA2772BFA4007249E2"
-            BuildableName = "MultiClockSaver.app"
+            BuildableName = "MultiClock macOS.app"
             BlueprintName = "macOS"
             ReferencedContainer = "container:MultiClock.xcodeproj">
          </BuildableReference>
