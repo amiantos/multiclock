@@ -28,9 +28,9 @@ class ClockController {
     
     private var timeSinceLastAnimation: Int = 30
     
-    init() {
+    init(size: CGSize) {
         for _ in 1...4 {
-            let cluster = ClusterNode(size: CGSize(width: 480, height: 720))
+            let cluster = ClusterNode(size: CGSize(width: size.width/4, height: (size.width/4/2)*3))
             clusters.append(cluster)
             clocks.append(contentsOf: cluster.clocks)
         }

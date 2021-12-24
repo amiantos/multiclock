@@ -20,17 +20,31 @@ class ClockScene: SKScene {
     override func sceneDidLoad() {
         backgroundColor = .black
         
-        controller = ClockController()
+        controller = ClockController(size: frame.size)
         controller?.scene = self
         
         controller?.clusters.forEach({ cluster in
             addChild(cluster)
         })
         
-        controller?.clusters[0].position = CGPoint(x: 120, y: frame.height-240)
-        controller?.clusters[1].position = CGPoint(x: 600, y: frame.height-240)
-        controller?.clusters[2].position = CGPoint(x: 1080, y: frame.height-240)
-        controller?.clusters[3].position = CGPoint(x: 1560, y: frame.height-240)
+        let clockSize = frame.size.width/4/2
+        
+        controller?.clusters[0].position = CGPoint(
+            x: (clockSize/2),
+            y: frame.size.height - (clockSize / 2) - ((frame.size.height - (clockSize * 3)) / 2)
+        )
+        controller?.clusters[1].position = CGPoint(
+            x: (clockSize/2) + (clockSize * 2),
+            y: frame.size.height - (clockSize / 2) - ((frame.size.height - (clockSize * 3)) / 2)
+        )
+        controller?.clusters[2].position = CGPoint(
+            x: (clockSize/2) + (clockSize * 4),
+            y: frame.size.height - (clockSize / 2) - ((frame.size.height - (clockSize * 3)) / 2)
+        )
+        controller?.clusters[3].position = CGPoint(
+            x: (clockSize/2) + (clockSize * 6),
+            y: frame.size.height - (clockSize / 2) - ((frame.size.height - (clockSize * 3)) / 2)
+        )
         
         controller?.start()
 

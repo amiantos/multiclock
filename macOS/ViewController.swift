@@ -21,7 +21,8 @@ class ViewController: NSViewController {
 
         if let view = self.skView {
             // Load the SKScene from 'ClockScene.sks'
-            let scene = ClockScene(size: view.frame.size)
+            Log.debug("Foo: \(skView.frame.size)")
+            let scene = ClockScene(size: skView.frame.size)
             
             skView.presentScene(scene)
             

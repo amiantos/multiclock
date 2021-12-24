@@ -10,7 +10,7 @@
 		442F730627753B8F006D0991 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730527753B8F006D0991 /* Animations.swift */; };
 		442F730827759C01006D0991 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730727759C00006D0991 /* Logging.swift */; };
 		442F730A2775CF92006D0991 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 442F73092775CF92006D0991 /* README.md */; };
-		442F731D27768052006D0991 /* LifeScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F731C27768052006D0991 /* LifeScreenSaverView.swift */; };
+		442F731D27768052006D0991 /* ClockScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F731C27768052006D0991 /* ClockScreenSaverView.swift */; };
 		442F731E277681DF006D0991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F5082772BFA6007249E2 /* Assets.xcassets */; };
 		442F731F277681DF006D0991 /* ClusterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5172772D315007249E2 /* ClusterNode.swift */; };
 		442F7320277681DF006D0991 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
@@ -20,6 +20,8 @@
 		442F7324277681DF006D0991 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730527753B8F006D0991 /* Animations.swift */; };
 		442F7325277681DF006D0991 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5152772CB87007249E2 /* Textures.swift */; };
 		442F7326277681DF006D0991 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730727759C00006D0991 /* Logging.swift */; };
+		442F732A27768669006D0991 /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
+		442F732B277686A7006D0991 /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
 		44C17D582773C947005E171A /* ClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClockController.swift */; };
 		44C17D5B2773D45C005E171A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
 		44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */; };
@@ -36,8 +38,9 @@
 		442F730527753B8F006D0991 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		442F730727759C00006D0991 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		442F73092775CF92006D0991 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		442F731327767FB2006D0991 /* Screensaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screensaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		442F731C27768052006D0991 /* LifeScreenSaverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeScreenSaverView.swift; sourceTree = "<group>"; };
+		442F731327767FB2006D0991 /* MultiClock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiClock.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		442F731C27768052006D0991 /* ClockScreenSaverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockScreenSaverView.swift; sourceTree = "<group>"; };
+		442F732927768669006D0991 /* FileGrabber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGrabber.swift; sourceTree = "<group>"; };
 		44C17D572773C947005E171A /* ClockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockController.swift; sourceTree = "<group>"; };
 		44C17D592773CD48005E171A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44C17D5A2773D45C005E171A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		442F730C27767DAD006D0991 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				442F732927768669006D0991 /* FileGrabber.swift */,
 				44E5F5152772CB87007249E2 /* Textures.swift */,
 				44C17D5A2773D45C005E171A /* Extensions.swift */,
 				442F730727759C00006D0991 /* Logging.swift */,
@@ -103,12 +107,12 @@
 			path = Nodes;
 			sourceTree = "<group>";
 		};
-		442F731427767FB2006D0991 /* Screensaver */ = {
+		442F731427767FB2006D0991 /* macOS Screensaver */ = {
 			isa = PBXGroup;
 			children = (
-				442F731C27768052006D0991 /* LifeScreenSaverView.swift */,
+				442F731C27768052006D0991 /* ClockScreenSaverView.swift */,
 			);
-			path = Screensaver;
+			path = "macOS Screensaver";
 			sourceTree = "<group>";
 		};
 		44E5F4F22772BFA4007249E2 = {
@@ -117,7 +121,7 @@
 				442F73092775CF92006D0991 /* README.md */,
 				442F730B27767D6F006D0991 /* Shared */,
 				44E5F4FD2772BFA4007249E2 /* macOS */,
-				442F731427767FB2006D0991 /* Screensaver */,
+				442F731427767FB2006D0991 /* macOS Screensaver */,
 				44C17D592773CD48005E171A /* .gitignore */,
 				44E5F4FC2772BFA4007249E2 /* Products */,
 			);
@@ -127,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				44E5F4FB2772BFA4007249E2 /* MultiClock macOS.app */,
-				442F731327767FB2006D0991 /* Screensaver.saver */,
+				442F731327767FB2006D0991 /* MultiClock.saver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,7 +175,7 @@
 			);
 			name = Screensaver;
 			productName = MultiClock;
-			productReference = 442F731327767FB2006D0991 /* Screensaver.saver */;
+			productReference = 442F731327767FB2006D0991 /* MultiClock.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
 		44E5F4FA2772BFA4007249E2 /* macOS */ = {
@@ -255,13 +259,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442F731D27768052006D0991 /* ClockScreenSaverView.swift in Sources */,
 				442F7323277681DF006D0991 /* ClockNode.swift in Sources */,
 				442F731F277681DF006D0991 /* ClusterNode.swift in Sources */,
 				442F7321277681DF006D0991 /* ClockScene.swift in Sources */,
 				442F7322277681DF006D0991 /* ClockController.swift in Sources */,
 				442F7320277681DF006D0991 /* Extensions.swift in Sources */,
+				442F732A27768669006D0991 /* FileGrabber.swift in Sources */,
 				442F7325277681DF006D0991 /* Textures.swift in Sources */,
-				442F731D27768052006D0991 /* LifeScreenSaverView.swift in Sources */,
 				442F7326277681DF006D0991 /* Logging.swift in Sources */,
 				442F7324277681DF006D0991 /* Animations.swift in Sources */,
 			);
@@ -281,6 +286,7 @@
 				44C17D582773C947005E171A /* ClockController.swift in Sources */,
 				44E5F5052772BFA4007249E2 /* ClockScene.swift in Sources */,
 				44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */,
+				442F732B277686A7006D0991 /* FileGrabber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,17 +314,17 @@
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = Screensaver.ClockScreenSaverView;
+				INFOPLIST_KEY_NSPrincipalClass = macOS_Screensaver.ClockScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.amiantos.MultiClock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MultiClock;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -336,17 +342,17 @@
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = Screensaver.ClockScreenSaverView;
+				INFOPLIST_KEY_NSPrincipalClass = macOS_Screensaver.ClockScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.amiantos.MultiClock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MultiClock;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;

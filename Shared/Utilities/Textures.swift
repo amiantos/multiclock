@@ -11,8 +11,8 @@
 import SpriteKit
 
 
-let hourHandTexture = SKTexture(imageNamed: "Hourhand")
+let hourHandTexture = FileGrabber.shared.getSKTexture(named: "Hourhand")
 
-let minuteHandTexture = SKTexture(imageNamed: "Minutehand")
+let minuteHandTexture = FileGrabber.shared.getSKTexture(named: "Minutehand")
 
-let clockFaceTexture = SKTexture(imageNamed: "Clockface")
+let clockFaceTexture = FileGrabber.shared.getSKTexture(named: "Clockface")
