@@ -67,62 +67,42 @@ class ClocksController {
         }
     }
     
+    // Helper functions for manually triggering animations
+    
     public func showCurrentTime() {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hhmm"
-        let timeString = dateFormatter.string(from: date)
-        let array = timeString.map(String.init)
-        
-        clusters[0].setNumber(Int(array[0])!)
-        clusters[1].setNumber(Int(array[1])!)
-        clusters[2].setNumber(Int(array[2])!)
-        clusters[3].setNumber(Int(array[3])!)
+        run(Animation.currentTimePrint())
     }
     
     public func returnToMidnight() {
-        clocks.forEach { clock in
-            clock.rotate(minuteDegrees: 0, hourDegrees: 0)
-        }
+        run(Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0))
     }
     
     public func moveAll(degrees: CGFloat) {
-        clocks.forEach { clock in
-            clock.rotate(minuteDegrees: degrees, hourDegrees: degrees)
-        }
+        run(Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees))
     }
     
     public func moveAll(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
-        clocks.forEach { clock in
-            clock.rotate(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees)
-        }
+        run(Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees))
     }
     
     public func setAllToCurrentTime() {
-        let date = Date()
-        let minute = Int(date.get(.minute))!
-        var hour = Int(date.get(.hour))!
-        
-        hour = hour > 12 ? hour - 12 : hour
-        
-        let hourFloat = CGFloat(hour) + (CGFloat(minute) / 60)
-        
-        print("hour float: \(hourFloat)")
-        
-        clocks.forEach { clock in
-            clock.rotate(
-                minuteDegrees: -CGFloat(((360/60)*minute)),
-                hourDegrees: -CGFloat(((360/12)*hourFloat))
-            )
-        }
+        run(Animation.currentTimeClock())
     }
     
     public func rotateAll(by degrees: CGFloat) {
-        let animation = Animation.spinBothHands(by: degrees)
-        run(animation)
+        run(Animation.spinBothHands(by: degrees))
     }
     
     public func testQueue() {
-        run([Animation.spinBothHands(by: 90), Animation.spinBothHands(by: 360)])
+        run([
+            Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
+            Animation.spinBothHands(by: 360),
+            Animation.currentTimeClock(),
+            Animation.wait(duration: 5),
+            Animation.currentTimePrint(),
+            Animation.wait(duration: 5),
+            Animation.spinBothHands(by: 360),
+            Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225)
+        ])
     }
 }

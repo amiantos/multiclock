@@ -54,57 +54,5 @@ class ClockNode: SKNode {
         ])))
         
     }
-    
-    public func rotate(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
-        
-        minuteHandNode.removeAllActions()
-        hourHandNode.removeAllActions()
-        
-        // rotate minute hand
-        let radianDifference = getRadianDifference(startDegrees: minuteHandNode.zRotation.radiansToDegrees(), endDegrees: -minuteDegrees)
-        let duration = radianDifference / movementSpeed
-        if radianDifference >= 0.1 {
-            minuteHandNode.run(SKAction.rotate(byAngle: -radianDifference, duration: duration))
-        }
-        
-        // rotate hour hand
-        let radianDifferenceHour = getRadianDifference(startDegrees: hourHandNode.zRotation.radiansToDegrees(), endDegrees: -hourDegrees)
-        let durationHour = radianDifferenceHour / movementSpeed
-        if radianDifferenceHour >= 0.1 {
-            hourHandNode.run(SKAction.rotate(byAngle: -radianDifferenceHour, duration: durationHour))
-        }
-    }
-    
-    public func rotate(by degrees: CGFloat) {
-        let radians = degrees.degreesToRadians()
-        hourHandNode.run(SKAction.rotate(byAngle: -radians, duration: radians / movementSpeed))
-        minuteHandNode.run(SKAction.rotate(byAngle: -radians, duration: radians / movementSpeed))
-    }
-    
-    
-    private func getRadianDifference(startDegrees: CGFloat, endDegrees: CGFloat) -> CGFloat {
-        
-        if debug {
-            print("Current degrees \(startDegrees)")
-            print("Destination degrees \(endDegrees)")
-        }
-        var distanceInDegrees: CGFloat = 0.0
-        if endDegrees >= startDegrees {
-            distanceInDegrees = endDegrees - startDegrees
-        } else {
-            distanceInDegrees = 360-startDegrees+endDegrees
-        }
-        
-        if abs(startDegrees - endDegrees) < 0.1 {
-            return 0
-        }
-        
-        if debug {
-            print("Difference in degrees? \(distanceInDegrees)")
-            print("Difference in radians? \(distanceInDegrees.degreesToRadians())")
-        }
-    
-        return distanceInDegrees.degreesToRadians()
-    }
-    
+
 }
