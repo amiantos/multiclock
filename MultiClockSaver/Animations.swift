@@ -11,6 +11,7 @@ import SpriteKit
 enum AnimationTypes {
     case positionBothHands
     case spinBothHands
+    case spinBothHandsWithDelay
     case currentTimePrint
     case currentTimeClock
     case wait
@@ -19,10 +20,11 @@ enum AnimationTypes {
 class Animation {
     private let animationType: AnimationTypes
     public var degrees: CGFloat = 0.0
-    public let movementSpeed: CGFloat = 1
+    public let movementSpeed: CGFloat = 0.8
     public var duration: TimeInterval = 0
     public var minuteDegrees: CGFloat = 0.0
     public var hourDegrees: CGFloat = 0.0
+    public var delay: TimeInterval = 0
     
     init(animation: AnimationTypes) {
         animationType = animation
@@ -32,7 +34,7 @@ class Animation {
         
         switch animationType {
         case .spinBothHands:
-            return spinBothHands(by: self.degrees, clocks: clocks)
+            return spinBothHands(clocks: clocks)
         case .currentTimePrint:
             return currentTimePrint(clusters: clusters)
         case .currentTimeClock:
@@ -41,6 +43,8 @@ class Animation {
             return wait(clocks: clocks)
         case .positionBothHands:
             return positionBothHands(clocks: clocks)
+        case .spinBothHandsWithDelay:
+            return spinBothHandsWithDelay(clusters: clusters)
         }
         
     }
@@ -106,24 +110,44 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func spinBothHands(by degrees: CGFloat, clocks: [ClockNode]) -> SKAction {
-        let radians = degrees.degreesToRadians()
+    private func spinBothHands(clocks: [ClockNode]) -> SKAction {
         var actions: [SKAction] = []
         clocks.forEach { clock in
-            let minuteHandAction = SKAction.run {
-                let action = SKAction.rotate(byAngle: -radians, duration: radians / clock.movementSpeed)
-                clock.minuteHandNode.run(action) {
-                    NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
-                }
-            }
-            let hourHandAction = SKAction.run {
-                let action = SKAction.rotate(byAngle: -radians, duration: radians / clock.movementSpeed)
-                clock.hourHandNode.run(action) {
-                    NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
-                }
-            }
-            let group = SKAction.group([minuteHandAction, hourHandAction])
-            actions.append(group)
+            actions.append(getActionGroupForSpin(clock: clock, degrees: self.degrees))
+        }
+        return SKAction.group(actions)
+    }
+    
+    private func spinBothHandsWithDelay(clusters: [NumberClusterNode]) -> SKAction {
+        var actions: [SKAction] = []
+        var currentDelay: TimeInterval = 0
+        
+        clusters.forEach { cluster in
+            
+            var clockActions: [SKAction] = []
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[0], degrees: self.degrees))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[2], degrees: self.degrees))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[4], degrees: self.degrees))
+            
+            actions.append(SKAction.sequence([
+                SKAction.wait(forDuration: currentDelay),
+                SKAction.group(clockActions)
+            ]))
+            
+            currentDelay += self.delay
+            
+            clockActions.removeAll()
+            
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[1], degrees: self.degrees))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[3], degrees: self.degrees))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[5], degrees: self.degrees))
+            
+            actions.append(SKAction.sequence([
+                SKAction.wait(forDuration: currentDelay),
+                SKAction.group(clockActions)
+            ]))
+            
+            currentDelay += self.delay
         }
         return SKAction.group(actions)
     }
@@ -152,7 +176,25 @@ class Animation {
         }
         
         return SKAction.group([minuteHandAction, hourHandAction])
-        
+    }
+    
+    private func getActionGroupForSpin(clock: ClockNode, degrees: CGFloat) -> SKAction {
+        let radians = degrees.degreesToRadians()
+        let minuteHandAction = SKAction.run {
+            let action = SKAction.rotate(byAngle: -radians, duration: radians / clock.movementSpeed)
+
+            clock.minuteHandNode.run(action) {
+                NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+            }
+        }
+        let hourHandAction = SKAction.run {
+            let action = SKAction.rotate(byAngle: -radians, duration: radians / clock.movementSpeed)
+
+            clock.hourHandNode.run(action) {
+                NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+            }
+        }
+        return SKAction.group([minuteHandAction, hourHandAction])
     }
     
     private func getRadianDifference(startDegrees: CGFloat, endDegrees: CGFloat) -> CGFloat {
@@ -197,6 +239,13 @@ class Animation {
         let animation = Animation(animation: .positionBothHands)
         animation.minuteDegrees = minuteDegrees
         animation.hourDegrees = hourDegrees
+        return animation
+    }
+    
+    static func spinBothHandsWithDelay(by degrees: CGFloat, delay: TimeInterval) -> Animation {
+        let animation = Animation(animation: .spinBothHandsWithDelay)
+        animation.degrees = degrees
+        animation.delay = delay
         return animation
     }
 }

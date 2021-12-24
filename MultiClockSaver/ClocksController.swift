@@ -45,23 +45,23 @@ class ClocksController {
         }
     }
     
-    public func run(_ animation: Animation) {
+    private func run(_ animation: Animation) {
         let actionGroup = animation.actions(clocks: clocks, clusters: clusters)
         isAnimating = true
         scene?.run(actionGroup)
     }
     
-    public func run(_ animations: [Animation]) {
+    private func run(_ animations: [Animation]) {
         animationQueue.append(contentsOf: animations)
         startAnimationQueueIfNeeded()
     }
     
-    public func runNextAnimation() {
+    private func runNextAnimation() {
         let animation =  animationQueue.removeFirst()
         run(animation)
     }
     
-    public func startAnimationQueueIfNeeded() {
+    private func startAnimationQueueIfNeeded() {
         if !isAnimating {
             runNextAnimation()
         }
@@ -70,39 +70,42 @@ class ClocksController {
     // Helper functions for manually triggering animations
     
     public func showCurrentTime() {
-        run(Animation.currentTimePrint())
+        run([Animation.currentTimePrint()])
     }
     
     public func returnToMidnight() {
-        run(Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0))
+        run([Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
     }
     
     public func moveAll(degrees: CGFloat) {
-        run(Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees))
+        run([Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees)])
     }
     
     public func moveAll(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
-        run(Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees))
+        run([Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees)])
     }
     
     public func setAllToCurrentTime() {
-        run(Animation.currentTimeClock())
+        run([Animation.currentTimeClock()])
     }
     
     public func rotateAll(by degrees: CGFloat) {
-        run(Animation.spinBothHands(by: degrees))
+        run([Animation.spinBothHands(by: degrees)])
     }
     
     public func testQueue() {
         run([
             Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
-            Animation.spinBothHands(by: 360),
+            Animation.spinBothHands(by: 180),
             Animation.currentTimeClock(),
             Animation.wait(duration: 5),
+            Animation.spinBothHands(by: 180),
             Animation.currentTimePrint(),
             Animation.wait(duration: 5),
-            Animation.spinBothHands(by: 360),
-            Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225)
+            Animation.spinBothHands(by: 180),
+            Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
+            Animation.spinBothHandsWithDelay(by: 360, delay: 0.5),
+            Animation.currentTimePrint(),
         ])
     }
 }

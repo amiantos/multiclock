@@ -24,10 +24,10 @@ class GameScene: SKScene {
             addChild(cluster)
         })
         
-        controller?.clusters[0].position = CGPoint(x: 150, y: frame.height-150)
-        controller?.clusters[1].position = CGPoint(x: 630, y: frame.height-150)
-        controller?.clusters[2].position = CGPoint(x: 1110, y: frame.height-150)
-        controller?.clusters[3].position = CGPoint(x: 1590, y: frame.height-150)
+        controller?.clusters[0].position = CGPoint(x: 120, y: frame.height-240)
+        controller?.clusters[1].position = CGPoint(x: 600, y: frame.height-240)
+        controller?.clusters[2].position = CGPoint(x: 1080, y: frame.height-240)
+        controller?.clusters[3].position = CGPoint(x: 1560, y: frame.height-240)
 
     }
     

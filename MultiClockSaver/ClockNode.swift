@@ -30,7 +30,7 @@ class ClockNode: SKNode {
         clockFaceNode.size = size
         clockFaceNode.zPosition = -2
         clockFaceNode.colorBlendFactor = 1
-        clockFaceNode.color = .red
+        clockFaceNode.color = .white
         clockFaceNode.alpha = 0.3
         
         hourHandNode.colorBlendFactor = 1
@@ -44,14 +44,14 @@ class ClockNode: SKNode {
         minuteHandNode.size = size
         
         
-        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
-            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5)
-        ])))
+//        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
+//            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5)
+//        ])))
         
     }
 
