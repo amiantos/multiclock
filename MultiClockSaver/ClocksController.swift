@@ -81,7 +81,7 @@ class ClocksController {
         } else if timeSinceLastAnimation >= 20 && !isAnimating {
             Log.debug("Displaying random animation...")
             
-            let number = Int.random(in: 1...5)
+            let number = Int.random(in: 1...6)
             switch number {
             case 1:
                 // this one is pretty cool imho
@@ -98,10 +98,12 @@ class ClocksController {
                     Animation.spinBothHandsWithDelay(by: 720, delay: 0.5)
                 ])
             case 3:
+                // single sweep big delay
                 queue(animations: [
                     Animation.spinBothHandsWithDelay(by: 360, delay: 1)
                 ])
-            case 5:
+            case 4:
+                // inward pointing pattern
                 queue(animations: [
                     Animation.display(pattern: testPattern),
                     Animation.wait(duration: 5),
@@ -110,7 +112,17 @@ class ClocksController {
                     Animation.spinBothHands(by: 360),
                     Animation.currentTimePrint(),
                 ])
+            case 5:
+                queue(animations: [
+                    Animation.display(pattern: horizontalLinesPattern),
+                    Animation.wait(duration: 10),
+                    Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -270),
+                    Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -90),
+                    Animation.positionBothHands(minuteDegrees: -180, hourDegrees: -180),
+                    Animation.currentTimePrint(),
+                ])
             default:
+                // delay spin with current time as clock
                 queue(animations: [
                     Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
                     Animation.spinBothHandsWithDelay(by: 180, delay: 0.2),

@@ -54,11 +54,11 @@ class GameScene: SKScene {
                 controller?.rotateAll(by: 360)
             case "o":
                 controller?.queue(animations: [
-                    Animation.display(pattern: testPattern),
-                    Animation.wait(duration: 5),
-                    Animation.spinBothHands(by: 360),
-                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
-                    Animation.spinBothHands(by: 360),
+                    Animation.display(pattern: horizontalLinesPattern),
+                    Animation.wait(duration: 10),
+                    Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -270),
+                    Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -90),
+                    Animation.positionBothHands(minuteDegrees: -180, hourDegrees: -180),
                     Animation.currentTimePrint(),
                 ])
             default:

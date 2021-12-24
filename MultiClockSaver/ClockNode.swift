@@ -28,7 +28,7 @@ class ClockNode: SKNode {
         clockFaceNode.size = size
         clockFaceNode.zPosition = -2
         clockFaceNode.colorBlendFactor = 1
-        clockFaceNode.color = .white
+        clockFaceNode.color = .gray
         clockFaceNode.alpha = 0.1
         
         hourHandNode.colorBlendFactor = 1
