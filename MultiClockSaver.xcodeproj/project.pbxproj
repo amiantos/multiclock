@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		442F730627753B8F006D0991 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730527753B8F006D0991 /* Animations.swift */; };
 		442F730827759C01006D0991 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730727759C00006D0991 /* Logging.swift */; };
+		442F730A2775CF92006D0991 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 442F73092775CF92006D0991 /* README.md */; };
 		44C17D582773C947005E171A /* ClocksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClocksController.swift */; };
 		44C17D5B2773D45C005E171A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
 		44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		442F730527753B8F006D0991 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		442F730727759C00006D0991 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		442F73092775CF92006D0991 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		44C17D572773C947005E171A /* ClocksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClocksController.swift; sourceTree = "<group>"; };
 		44C17D592773CD48005E171A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44C17D5A2773D45C005E171A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				44C17D592773CD48005E171A /* .gitignore */,
+				442F73092775CF92006D0991 /* README.md */,
 				44E5F4FD2772BFA4007249E2 /* MultiClockSaver */,
 				44E5F4FC2772BFA4007249E2 /* Products */,
 			);
@@ -145,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442F730A2775CF92006D0991 /* README.md in Resources */,
 				44E5F5092772BFA6007249E2 /* Assets.xcassets in Resources */,
 				44E5F50C2772BFA6007249E2 /* Main.storyboard in Resources */,
 			);
