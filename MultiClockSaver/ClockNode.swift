@@ -8,8 +8,6 @@
 import SpriteKit
 
 class ClockNode: SKNode {
-    public let movementSpeed: CGFloat = 1
-    
     public var debug: Bool = false
     
     private var minuteRotation: CGFloat = 0

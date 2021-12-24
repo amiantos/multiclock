@@ -28,6 +28,8 @@ class GameScene: SKScene {
         controller?.clusters[1].position = CGPoint(x: 600, y: frame.height-240)
         controller?.clusters[2].position = CGPoint(x: 1080, y: frame.height-240)
         controller?.clusters[3].position = CGPoint(x: 1560, y: frame.height-240)
+        
+        controller?.start()
 
     }
     
