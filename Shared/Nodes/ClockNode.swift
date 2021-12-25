@@ -34,7 +34,7 @@ class ClockNode: SKNode {
         clockFaceNode.color = .gray
         clockFaceNode.alpha = 0.1
         
-        let handColor = NSColor(deviceHue: 0, saturation: 0, brightness: 0.90, alpha: 1)
+        let handColor = SKColor(hue: 0, saturation: 0, brightness: 0.90, alpha: 1)
         
         hourHandNode.colorBlendFactor = 1
         hourHandNode.color = handColor

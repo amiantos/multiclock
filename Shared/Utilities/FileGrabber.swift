@@ -14,7 +14,6 @@ import SpriteKit
 #if os(macOS)
     import Cocoa
 
-    // Step 1: Typealias UIImage to NSImage
     typealias UIImage = NSImage
 #endif
 

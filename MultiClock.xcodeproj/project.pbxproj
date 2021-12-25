@@ -22,6 +22,21 @@
 		442F7326277681DF006D0991 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730727759C00006D0991 /* Logging.swift */; };
 		442F732A27768669006D0991 /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
 		442F732B277686A7006D0991 /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
+		444CD59A2776A8D800F51D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444CD5992776A8D800F51D7A /* AppDelegate.swift */; };
+		444CD5A22776A8D800F51D7A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444CD5A12776A8D800F51D7A /* GameViewController.swift */; };
+		444CD5A52776A8D800F51D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444CD5A32776A8D800F51D7A /* Main.storyboard */; };
+		444CD5AA2776A8DA00F51D7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444CD5A82776A8DA00F51D7A /* LaunchScreen.storyboard */; };
+		444CD5AE2776AD0E00F51D7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E5F5082772BFA6007249E2 /* Assets.xcassets */; };
+		444CD5AF2776AD0E00F51D7A /* ClusterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5172772D315007249E2 /* ClusterNode.swift */; };
+		444CD5B02776AD0E00F51D7A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
+		444CD5B12776AD0E00F51D7A /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730527753B8F006D0991 /* Animations.swift */; };
+		444CD5B22776AD0E00F51D7A /* ClockScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5042772BFA4007249E2 /* ClockScene.swift */; };
+		444CD5B32776AD0E00F51D7A /* ClockNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5132772CB2D007249E2 /* ClockNode.swift */; };
+		444CD5B42776AD0E00F51D7A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F730727759C00006D0991 /* Logging.swift */; };
+		444CD5B52776AD0E00F51D7A /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F5152772CB87007249E2 /* Textures.swift */; };
+		444CD5B62776AD0E00F51D7A /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
+		444CD5B72776AD0E00F51D7A /* ClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClockController.swift */; };
+		444CD5B92776B01500F51D7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444CD5B82776B01500F51D7A /* Assets.xcassets */; };
 		44C17D582773C947005E171A /* ClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClockController.swift */; };
 		44C17D5B2773D45C005E171A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
 		44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */; };
@@ -41,6 +56,13 @@
 		442F731327767FB2006D0991 /* MultiClock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiClock.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		442F731C27768052006D0991 /* ClockScreenSaverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockScreenSaverView.swift; sourceTree = "<group>"; };
 		442F732927768669006D0991 /* FileGrabber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGrabber.swift; sourceTree = "<group>"; };
+		444CD5972776A8D800F51D7A /* MultiClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		444CD5992776A8D800F51D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		444CD5A12776A8D800F51D7A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		444CD5A42776A8D800F51D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		444CD5A92776A8DA00F51D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		444CD5B82776B01500F51D7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		444CD5BA2776B02900F51D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		44C17D572773C947005E171A /* ClockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockController.swift; sourceTree = "<group>"; };
 		44C17D592773CD48005E171A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44C17D5A2773D45C005E171A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -58,6 +80,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		442F731027767FB2006D0991 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		444CD5942776A8D800F51D7A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,6 +144,19 @@
 			path = "macOS Screensaver";
 			sourceTree = "<group>";
 		};
+		444CD5982776A8D800F51D7A /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				444CD5BA2776B02900F51D7A /* Info.plist */,
+				444CD5B82776B01500F51D7A /* Assets.xcassets */,
+				444CD5992776A8D800F51D7A /* AppDelegate.swift */,
+				444CD5A12776A8D800F51D7A /* GameViewController.swift */,
+				444CD5A32776A8D800F51D7A /* Main.storyboard */,
+				444CD5A82776A8DA00F51D7A /* LaunchScreen.storyboard */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
 		44E5F4F22772BFA4007249E2 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +164,7 @@
 				442F730B27767D6F006D0991 /* Shared */,
 				44E5F4FD2772BFA4007249E2 /* macOS */,
 				442F731427767FB2006D0991 /* macOS Screensaver */,
+				444CD5982776A8D800F51D7A /* tvOS */,
 				44C17D592773CD48005E171A /* .gitignore */,
 				44E5F4FC2772BFA4007249E2 /* Products */,
 			);
@@ -132,6 +175,7 @@
 			children = (
 				44E5F4FB2772BFA4007249E2 /* MultiClock macOS.app */,
 				442F731327767FB2006D0991 /* MultiClock.saver */,
+				444CD5972776A8D800F51D7A /* MultiClock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,6 +222,23 @@
 			productReference = 442F731327767FB2006D0991 /* MultiClock.saver */;
 			productType = "com.apple.product-type.bundle";
 		};
+		444CD5962776A8D800F51D7A /* tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 444CD5AB2776A8DA00F51D7A /* Build configuration list for PBXNativeTarget "tvOS" */;
+			buildPhases = (
+				444CD5932776A8D800F51D7A /* Sources */,
+				444CD5942776A8D800F51D7A /* Frameworks */,
+				444CD5952776A8D800F51D7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tvOS;
+			productName = MultiClock;
+			productReference = 444CD5972776A8D800F51D7A /* MultiClock.app */;
+			productType = "com.apple.product-type.application";
+		};
 		44E5F4FA2772BFA4007249E2 /* macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44E5F5102772BFA6007249E2 /* Build configuration list for PBXNativeTarget "macOS" */;
@@ -209,6 +270,9 @@
 						CreatedOnToolsVersion = 13.2.1;
 						LastSwiftMigration = 1320;
 					};
+					444CD5962776A8D800F51D7A = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					44E5F4FA2772BFA4007249E2 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -229,6 +293,7 @@
 			targets = (
 				44E5F4FA2772BFA4007249E2 /* macOS */,
 				442F731227767FB2006D0991 /* Screensaver */,
+				444CD5962776A8D800F51D7A /* tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -239,6 +304,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				442F731E277681DF006D0991 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		444CD5952776A8D800F51D7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				444CD5A52776A8D800F51D7A /* Main.storyboard in Resources */,
+				444CD5AE2776AD0E00F51D7A /* Assets.xcassets in Resources */,
+				444CD5B92776B01500F51D7A /* Assets.xcassets in Resources */,
+				444CD5AA2776A8DA00F51D7A /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +348,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		444CD5932776A8D800F51D7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				444CD5A22776A8D800F51D7A /* GameViewController.swift in Sources */,
+				444CD5B22776AD0E00F51D7A /* ClockScene.swift in Sources */,
+				444CD5B12776AD0E00F51D7A /* Animations.swift in Sources */,
+				444CD5AF2776AD0E00F51D7A /* ClusterNode.swift in Sources */,
+				444CD5B32776AD0E00F51D7A /* ClockNode.swift in Sources */,
+				444CD5B62776AD0E00F51D7A /* FileGrabber.swift in Sources */,
+				444CD5B52776AD0E00F51D7A /* Textures.swift in Sources */,
+				444CD59A2776A8D800F51D7A /* AppDelegate.swift in Sources */,
+				444CD5B02776AD0E00F51D7A /* Extensions.swift in Sources */,
+				444CD5B72776AD0E00F51D7A /* ClockController.swift in Sources */,
+				444CD5B42776AD0E00F51D7A /* Logging.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44E5F4F72772BFA4007249E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +387,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		444CD5A32776A8D800F51D7A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				444CD5A42776A8D800F51D7A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		444CD5A82776A8DA00F51D7A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				444CD5A92776A8DA00F51D7A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		44E5F50A2772BFA6007249E2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,6 +466,63 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+		444CD5AC2776A8DA00F51D7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.amiantos.MultiClock;
+				PRODUCT_NAME = MultiClock;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.2;
+			};
+			name = Debug;
+		};
+		444CD5AD2776A8DA00F51D7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.amiantos.MultiClock;
+				PRODUCT_NAME = MultiClock;
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 15.2;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -538,6 +705,15 @@
 			buildConfigurations = (
 				442F731A27767FB2006D0991 /* Debug */,
 				442F731B27767FB2006D0991 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		444CD5AB2776A8DA00F51D7A /* Build configuration list for PBXNativeTarget "tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				444CD5AC2776A8DA00F51D7A /* Debug */,
+				444CD5AD2776A8DA00F51D7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

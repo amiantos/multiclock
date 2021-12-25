@@ -54,6 +54,7 @@ class ClockScene: SKScene {
 
     }
     
+#if os(macOS)
     override func keyUp(with event: NSEvent) {
         if let character = event.characters {
             switch character {
@@ -83,6 +84,6 @@ class ClockScene: SKScene {
             }
         }
     }
-    
+#endif
     
 }

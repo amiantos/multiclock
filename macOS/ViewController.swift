@@ -20,13 +20,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         if let view = self.skView {
-            // Load the SKScene from 'ClockScene.sks'
-            Log.debug("Foo: \(skView.frame.size)")
             let scene = ClockScene(size: skView.frame.size)
-            
             skView.presentScene(scene)
-            
-            view.ignoresSiblingOrder = true
             
             view.showsFPS = true
             view.showsNodeCount = true
