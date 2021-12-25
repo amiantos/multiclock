@@ -23,13 +23,13 @@ enum AnimationTypes {
 
 class Animation {
     private let animationType: AnimationTypes
-    public var degrees: CGFloat = 0.0
-    public let movementSpeed: CGFloat = 0.8
-    public var duration: TimeInterval = 0
-    public var minuteDegrees: CGFloat = 0.0
-    public var hourDegrees: CGFloat = 0.0
-    public var delay: TimeInterval = 0
-    public var pattern: [Int: [(CGFloat, CGFloat)]] = [:]
+    private var degrees: CGFloat = 0.0
+    private let movementSpeed: CGFloat = 0.8
+    private var duration: TimeInterval = 0
+    private var minuteDegrees: CGFloat = 0.0
+    private var hourDegrees: CGFloat = 0.0
+    private var delay: TimeInterval = 0
+    private var pattern: [Int: [(CGFloat, CGFloat)]] = [:]
     
     init(animation: AnimationTypes) {
         animationType = animation
