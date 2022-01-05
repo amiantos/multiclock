@@ -27,34 +27,42 @@ class ClockNode: SKNode {
     init(size: CGSize) {
         super.init()
         
+        let handColor = SKColor(hue: 0, saturation: 0, brightness: 0.90, alpha: 1)
+        let faceColor = SKColor(hue: 0, saturation: 0, brightness: 0.20, alpha: 1)
+        
         addChild(clockFaceNode)
         clockFaceNode.size = size
-        clockFaceNode.zPosition = -2
+        clockFaceNode.zPosition = -1
         clockFaceNode.colorBlendFactor = 1
-        clockFaceNode.color = .gray
-        clockFaceNode.alpha = 0.1
-        
-        let handColor = SKColor(hue: 0, saturation: 0, brightness: 0.90, alpha: 1)
+        clockFaceNode.color = faceColor
+        clockFaceNode.alpha = 1
         
         hourHandNode.colorBlendFactor = 1
         hourHandNode.color = handColor
         addChild(hourHandNode)
         hourHandNode.size = size
+        hourHandNode.zPosition = 0
         
         minuteHandNode.colorBlendFactor = 1
         minuteHandNode.color = handColor
         addChild(minuteHandNode)
         minuteHandNode.size = size
+        hourHandNode.zPosition = 1
+        
+//        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
+//            SKAction.fadeAlpha(to: 0.1, duration: 5),
+//            SKAction.fadeAlpha(to: 0.5, duration: 5)
+//        ])))
         
         
-        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
-            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
-            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5)
-        ])))
+//        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
+//            SKAction.colorize(with: .orange, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .yellow, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .green, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .blue, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .purple, colorBlendFactor: 1, duration: 5),
+//            SKAction.colorize(with: .red, colorBlendFactor: 1, duration: 5),
+//        ])))
         
     }
 

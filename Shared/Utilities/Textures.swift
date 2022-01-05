@@ -16,3 +16,11 @@ let hourHandTexture = FileGrabber.shared.getSKTexture(named: "Hourhand")
 let minuteHandTexture = FileGrabber.shared.getSKTexture(named: "Minutehand")
 
 let clockFaceTexture = FileGrabber.shared.getSKTexture(named: "Clockface")
+
+let clockFaceThickTexture = FileGrabber.shared.getSKTexture(named: "Clockface-thick")
+
+let clockFaceTraditionalTexture = FileGrabber.shared.getSKTexture(named: "Clockface-traditional")
+
+let hourHandAWFTexture = FileGrabber.shared.getSKTexture(named: "Hourhand-applewatch-filled")
+
+let minuteHandAWFTexture = FileGrabber.shared.getSKTexture(named: "Minutehand-applewatch-filled")
