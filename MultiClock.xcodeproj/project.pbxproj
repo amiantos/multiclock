@@ -37,6 +37,10 @@
 		444CD5B62776AD0E00F51D7A /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
 		444CD5B72776AD0E00F51D7A /* ClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClockController.swift */; };
 		444CD5B92776B01500F51D7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444CD5B82776B01500F51D7A /* Assets.xcassets */; };
+		44B5BECC2787EED100218491 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B5BECA2787EED100218491 /* ConfigureSheet.xib */; };
+		44B5BECD2787EED100218491 /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5BECB2787EED100218491 /* ConfigureSheetController.swift */; };
+		44B5BECF2787F47A00218491 /* ClockPreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5BECE2787F47A00218491 /* ClockPreviewScene.swift */; };
+		44B5BED1278808B600218491 /* URLType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5BED0278808B600218491 /* URLType.swift */; };
 		44C17D582773C947005E171A /* ClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClockController.swift */; };
 		44C17D5B2773D45C005E171A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D5A2773D45C005E171A /* Extensions.swift */; };
 		44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5F4FE2772BFA4007249E2 /* AppDelegate.swift */; };
@@ -63,6 +67,10 @@
 		444CD5A92776A8DA00F51D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		444CD5B82776B01500F51D7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		444CD5BA2776B02900F51D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		44B5BECA2787EED100218491 /* ConfigureSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigureSheet.xib; sourceTree = "<group>"; };
+		44B5BECB2787EED100218491 /* ConfigureSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
+		44B5BECE2787F47A00218491 /* ClockPreviewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockPreviewScene.swift; sourceTree = "<group>"; };
+		44B5BED0278808B600218491 /* URLType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLType.swift; sourceTree = "<group>"; };
 		44C17D572773C947005E171A /* ClockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockController.swift; sourceTree = "<group>"; };
 		44C17D592773CD48005E171A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44C17D5A2773D45C005E171A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				442F732927768669006D0991 /* FileGrabber.swift */,
+				44B5BED0278808B600218491 /* URLType.swift */,
 				44E5F5152772CB87007249E2 /* Textures.swift */,
 				44C17D5A2773D45C005E171A /* Extensions.swift */,
 				442F730727759C00006D0991 /* Logging.swift */,
@@ -139,6 +148,7 @@
 		442F731427767FB2006D0991 /* macOS Screensaver */ = {
 			isa = PBXGroup;
 			children = (
+				44B5BEBB2787ED7F00218491 /* ConfigureSheet */,
 				442F731C27768052006D0991 /* ClockScreenSaverView.swift */,
 			);
 			path = "macOS Screensaver";
@@ -155,6 +165,16 @@
 				444CD5A82776A8DA00F51D7A /* LaunchScreen.storyboard */,
 			);
 			path = tvOS;
+			sourceTree = "<group>";
+		};
+		44B5BEBB2787ED7F00218491 /* ConfigureSheet */ = {
+			isa = PBXGroup;
+			children = (
+				44B5BECA2787EED100218491 /* ConfigureSheet.xib */,
+				44B5BECB2787EED100218491 /* ConfigureSheetController.swift */,
+				44B5BECE2787F47A00218491 /* ClockPreviewScene.swift */,
+			);
+			path = ConfigureSheet;
 			sourceTree = "<group>";
 		};
 		44E5F4F22772BFA4007249E2 = {
@@ -303,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B5BECC2787EED100218491 /* ConfigureSheet.xib in Resources */,
 				442F731E277681DF006D0991 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				442F731D27768052006D0991 /* ClockScreenSaverView.swift in Sources */,
+				44B5BED1278808B600218491 /* URLType.swift in Sources */,
+				44B5BECD2787EED100218491 /* ConfigureSheetController.swift in Sources */,
 				442F7323277681DF006D0991 /* ClockNode.swift in Sources */,
 				442F731F277681DF006D0991 /* ClusterNode.swift in Sources */,
 				442F7321277681DF006D0991 /* ClockScene.swift in Sources */,
@@ -344,6 +367,7 @@
 				442F732A27768669006D0991 /* FileGrabber.swift in Sources */,
 				442F7325277681DF006D0991 /* Textures.swift in Sources */,
 				442F7326277681DF006D0991 /* Logging.swift in Sources */,
+				44B5BECF2787F47A00218491 /* ClockPreviewScene.swift in Sources */,
 				442F7324277681DF006D0991 /* Animations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

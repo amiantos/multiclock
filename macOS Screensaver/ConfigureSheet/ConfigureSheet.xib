@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="MultiClock" customModuleProvider="target">
+            <connections>
+                <outlet property="skView" destination="bsu-hX-ffb" id="b77-GW-68Y"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="msk-9s-ld4"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Last Statemet Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" userLabel="Last Statement Settings">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="398" height="627"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="406" height="350"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ckD-Qe-k8M">
+                        <rect key="frame" x="327" y="13" width="66" height="32"/>
+                        <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Dbk-lg-fru">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeButtonAction:" target="-2" id="BwZ-Pk-TUU"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-oa-EiD">
+                        <rect key="frame" x="23" y="302" width="115" height="28"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="MultiClock" id="A1b-ty-yQK">
+                            <font key="font" metaFont="system" size="24"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zng-Ku-YRl">
+                        <rect key="frame" x="50" y="286" width="86" height="16"/>
+                        <buttonCell key="cell" type="square" title="by Brad Root" bezelStyle="shadowlessSquare" alignment="right" imageScaling="proportionallyDown" inset="2" id="piz-AH-ud0">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <color key="contentTintColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <action selector="bradLinkAction:" target="-2" id="JlY-lu-xib"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UuZ-Bu-QIk">
+                        <rect key="frame" x="20" y="22" width="240" height="16"/>
+                        <buttonCell key="cell" type="square" title="https://github.com/amiantos/multiclock" bezelStyle="shadowlessSquare" alignment="left" imageScaling="proportionallyDown" inset="2" id="cN8-4S-TWN">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <color key="contentTintColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <action selector="gitHubLinkAction:" target="-2" id="PeJ-8H-qfr"/>
+                        </connections>
+                    </button>
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="rhy-1B-SYh">
+                        <rect key="frame" x="20" y="263" width="366" height="5"/>
+                    </box>
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Ezl-WK-wYQ">
+                        <rect key="frame" x="20" y="58" width="366" height="5"/>
+                    </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPI-vH-MTc">
+                        <rect key="frame" x="23" y="286" width="29" height="14"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.0" id="aYW-mH-qB5">
+                            <font key="font" metaFont="controlContent" size="11"/>
+                            <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box title="Hands" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1sX-a9-ITB">
+                        <rect key="frame" x="17" y="169" width="196" height="66"/>
+                        <view key="contentView" id="dBF-N2-1wt">
+                            <rect key="frame" x="3" y="3" width="190" height="60"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U7d-x2-NtY">
+                                    <rect key="frame" x="17" y="16" width="129" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Bauhaus" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="jZW-4Y-0aL" id="waA-CY-jXG">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="T2N-gk-20p">
+                                            <items>
+                                                <menuItem title="Bauhaus" state="on" id="jZW-4Y-0aL"/>
+                                                <menuItem title="Apple (Solid)" id="oo1-9r-kcG"/>
+                                                <menuItem title="Apple (Filled)" id="nVF-FZ-W4a"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
+                                <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="OH3-0u-6Cx">
+                                    <rect key="frame" x="150" y="20" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="ebR-kI-g6V"/>
+                                    </constraints>
+                                    <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </colorWell>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="U7d-x2-NtY" secondAttribute="bottom" constant="20" symbolic="YES" id="94o-1x-sek"/>
+                                <constraint firstItem="U7d-x2-NtY" firstAttribute="top" secondItem="dBF-N2-1wt" secondAttribute="top" constant="20" symbolic="YES" id="CdE-SC-eih"/>
+                                <constraint firstItem="OH3-0u-6Cx" firstAttribute="leading" secondItem="U7d-x2-NtY" secondAttribute="trailing" constant="8" symbolic="YES" id="D5K-bV-3fK"/>
+                                <constraint firstItem="OH3-0u-6Cx" firstAttribute="top" secondItem="dBF-N2-1wt" secondAttribute="top" constant="20" symbolic="YES" id="dYG-vq-Njw"/>
+                                <constraint firstAttribute="bottom" secondItem="OH3-0u-6Cx" secondAttribute="bottom" constant="20" symbolic="YES" id="ixh-ik-HQO"/>
+                                <constraint firstAttribute="trailing" secondItem="OH3-0u-6Cx" secondAttribute="trailing" constant="20" symbolic="YES" id="sHN-Hz-zuO"/>
+                                <constraint firstItem="OH3-0u-6Cx" firstAttribute="centerY" secondItem="U7d-x2-NtY" secondAttribute="centerY" id="xRT-j8-H9Q"/>
+                                <constraint firstItem="U7d-x2-NtY" firstAttribute="leading" secondItem="dBF-N2-1wt" secondAttribute="leading" constant="20" symbolic="YES" id="zsg-Vf-P8v"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="190" id="Zug-4n-JxE"/>
+                        </constraints>
+                    </box>
+                    <box title="Dial" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="qYy-df-lSn">
+                        <rect key="frame" x="17" y="77" width="196" height="66"/>
+                        <view key="contentView" id="eZt-ZX-rT9">
+                            <rect key="frame" x="3" y="3" width="190" height="60"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NkW-0W-HiX">
+                                    <rect key="frame" x="17" y="16" width="129" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Bauhaus (Thin)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0Te-iL-ihM" id="YUC-JF-4sh">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="9Wc-aq-LUM">
+                                            <items>
+                                                <menuItem title="Bauhaus (Thin)" state="on" id="0Te-iL-ihM"/>
+                                                <menuItem title="Bauhaus (Thick)" id="itS-9D-X1o"/>
+                                                <menuItem title="Indices" id="okn-qV-Fzq"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
+                                <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="aWw-zp-YNY">
+                                    <rect key="frame" x="150" y="20" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="DzZ-4A-wwb"/>
+                                    </constraints>
+                                    <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </colorWell>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="NkW-0W-HiX" firstAttribute="top" secondItem="eZt-ZX-rT9" secondAttribute="top" constant="20" symbolic="YES" id="3Z7-XW-2C4"/>
+                                <constraint firstAttribute="bottom" secondItem="aWw-zp-YNY" secondAttribute="bottom" constant="20" symbolic="YES" id="aKp-73-9zk"/>
+                                <constraint firstItem="NkW-0W-HiX" firstAttribute="leading" secondItem="eZt-ZX-rT9" secondAttribute="leading" constant="20" symbolic="YES" id="g7N-0W-bLb"/>
+                                <constraint firstAttribute="trailing" secondItem="aWw-zp-YNY" secondAttribute="trailing" constant="20" symbolic="YES" id="hKA-vQ-sVc"/>
+                                <constraint firstAttribute="bottom" secondItem="NkW-0W-HiX" secondAttribute="bottom" constant="20" symbolic="YES" id="pgn-MF-E70"/>
+                                <constraint firstItem="aWw-zp-YNY" firstAttribute="leading" secondItem="NkW-0W-HiX" secondAttribute="trailing" constant="8" symbolic="YES" id="u5k-dv-2T8"/>
+                                <constraint firstItem="aWw-zp-YNY" firstAttribute="top" secondItem="eZt-ZX-rT9" secondAttribute="top" constant="20" symbolic="YES" id="vlA-1k-xSm"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="190" id="dsB-ii-lTs"/>
+                        </constraints>
+                    </box>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SLu-Cw-EjK">
+                        <rect key="frame" x="174" y="310" width="212" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="212" id="9g2-Vj-iUZ"/>
+                            <constraint firstAttribute="height" constant="20" id="EtI-0a-sgb"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" title="Follow @amiantos on Twitter" bezelStyle="shadowlessSquare" image="twitter" imagePosition="left" alignment="left" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" imageScaling="proportionallyDown" inset="2" id="ikI-Qi-1Q1">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <color key="contentTintColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <action selector="twitterLinkAction:" target="-2" id="yqw-Wj-2W7"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="exg-Hk-Epa">
+                        <rect key="frame" x="174" y="280" width="212" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="V26-e7-QBl"/>
+                            <constraint firstAttribute="width" constant="212" id="ZgH-Yg-k2J"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" title="Contribute on GitHub" bezelStyle="shadowlessSquare" image="github" imagePosition="left" alignment="left" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" imageScaling="proportionallyDown" inset="2" id="IhB-H1-lbc">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <color key="contentTintColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <action selector="gitHubLinkAction:" target="-2" id="16E-h6-ChC"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JUo-8j-Zyy">
+                        <rect key="frame" x="18" y="241" width="43" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Hands" id="fzB-g2-Kdh">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zfv-iZ-VYs">
+                        <rect key="frame" x="18" y="149" width="27" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Dial" id="TQ7-8b-yLJ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5ui-3p-DdS">
+                        <rect key="frame" x="226" y="241" width="52" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Preview" id="dAG-dp-DVp">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box boxType="custom" borderWidth="4" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="zfF-7U-pGr">
+                        <rect key="frame" x="228" y="75" width="158" height="158"/>
+                        <view key="contentView" id="fEz-Mc-lEq">
+                            <rect key="frame" x="4" y="4" width="150" height="150"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="bsu-hX-ffb" customClass="SKView">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="150" id="3jW-ZU-YtS"/>
+                                        <constraint firstAttribute="width" constant="150" id="c8a-tx-f57"/>
+                                    </constraints>
+                                </customView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="bsu-hX-ffb" secondAttribute="bottom" id="Zfq-7v-J56"/>
+                                <constraint firstItem="bsu-hX-ffb" firstAttribute="leading" secondItem="fEz-Mc-lEq" secondAttribute="leading" id="enE-SU-r4H"/>
+                                <constraint firstItem="bsu-hX-ffb" firstAttribute="top" secondItem="fEz-Mc-lEq" secondAttribute="top" id="gdm-BY-REq"/>
+                                <constraint firstAttribute="trailing" secondItem="bsu-hX-ffb" secondAttribute="trailing" id="q2k-hc-cgB"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="158" id="0ur-5V-uwJ"/>
+                            <constraint firstAttribute="width" constant="158" id="z0I-8h-fwU"/>
+                        </constraints>
+                        <color key="borderColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                    </box>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zfF-7U-pGr" secondAttribute="trailing" constant="20" symbolic="YES" id="3Dr-zT-bZ5"/>
+                    <constraint firstItem="rhy-1B-SYh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="3jM-Y1-v8D"/>
+                    <constraint firstItem="JUo-8j-Zyy" firstAttribute="top" secondItem="rhy-1B-SYh" secondAttribute="bottom" constant="8" symbolic="YES" id="4Pv-es-dex"/>
+                    <constraint firstItem="SLu-Cw-EjK" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="9Xl-8S-T8o"/>
+                    <constraint firstItem="1sX-a9-ITB" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="9nh-Yc-DLL"/>
+                    <constraint firstAttribute="trailing" secondItem="rhy-1B-SYh" secondAttribute="trailing" constant="20" id="9v0-7t-tmu"/>
+                    <constraint firstAttribute="trailing" secondItem="Ezl-WK-wYQ" secondAttribute="trailing" constant="20" id="Acz-X2-4z7"/>
+                    <constraint firstItem="qYy-df-lSn" firstAttribute="height" secondItem="1sX-a9-ITB" secondAttribute="height" id="Ari-yt-cyV"/>
+                    <constraint firstItem="zfF-7U-pGr" firstAttribute="top" secondItem="5ui-3p-DdS" secondAttribute="bottom" constant="8" symbolic="YES" id="Auy-2X-09S"/>
+                    <constraint firstAttribute="bottom" secondItem="UuZ-Bu-QIk" secondAttribute="bottom" constant="22" id="BEw-ho-jWv"/>
+                    <constraint firstItem="UuZ-Bu-QIk" firstAttribute="top" secondItem="Ezl-WK-wYQ" secondAttribute="bottom" constant="22" id="C69-eQ-0cV"/>
+                    <constraint firstItem="qYy-df-lSn" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="CgQ-ev-H8R"/>
+                    <constraint firstItem="zfv-iZ-VYs" firstAttribute="top" secondItem="1sX-a9-ITB" secondAttribute="bottom" constant="8" symbolic="YES" id="HxJ-ae-wIu"/>
+                    <constraint firstItem="5ui-3p-DdS" firstAttribute="top" secondItem="rhy-1B-SYh" secondAttribute="bottom" constant="8" symbolic="YES" id="IIP-4L-Mgi"/>
+                    <constraint firstItem="exg-Hk-Epa" firstAttribute="leading" secondItem="SLu-Cw-EjK" secondAttribute="leading" id="Jq1-cD-TWJ"/>
+                    <constraint firstItem="Ezl-WK-wYQ" firstAttribute="top" secondItem="qYy-df-lSn" secondAttribute="bottom" constant="20" id="Kge-3A-ebv"/>
+                    <constraint firstItem="cPI-vH-MTc" firstAttribute="centerY" secondItem="zng-Ku-YRl" secondAttribute="centerY" constant="1" id="L7z-iS-SP5"/>
+                    <constraint firstAttribute="bottom" secondItem="ckD-Qe-k8M" secondAttribute="bottom" constant="20" symbolic="YES" id="MYC-07-CER"/>
+                    <constraint firstItem="Ezl-WK-wYQ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="OLr-eW-Gi5"/>
+                    <constraint firstItem="zfv-iZ-VYs" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="RXl-op-s8p"/>
+                    <constraint firstItem="ckD-Qe-k8M" firstAttribute="top" secondItem="Ezl-WK-wYQ" secondAttribute="bottom" constant="20" symbolic="YES" id="YSC-np-tWS"/>
+                    <constraint firstItem="zfF-7U-pGr" firstAttribute="leading" secondItem="1sX-a9-ITB" secondAttribute="trailing" constant="18" id="b5M-Jq-t5I"/>
+                    <constraint firstAttribute="trailing" secondItem="SLu-Cw-EjK" secondAttribute="trailing" constant="20" symbolic="YES" id="bOx-Ub-oEv"/>
+                    <constraint firstItem="cPI-vH-MTc" firstAttribute="leading" secondItem="XeC-oa-EiD" secondAttribute="leading" id="bQL-Um-QP1"/>
+                    <constraint firstItem="XeC-oa-EiD" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="25" id="bpY-bf-QXD"/>
+                    <constraint firstItem="exg-Hk-Epa" firstAttribute="top" secondItem="SLu-Cw-EjK" secondAttribute="bottom" constant="10" id="cwl-Qw-ift"/>
+                    <constraint firstItem="JUo-8j-Zyy" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="d1M-Zj-8EU"/>
+                    <constraint firstItem="zng-Ku-YRl" firstAttribute="leading" secondItem="cPI-vH-MTc" secondAttribute="trailing" id="fpE-6U-JMB"/>
+                    <constraint firstItem="1sX-a9-ITB" firstAttribute="top" secondItem="JUo-8j-Zyy" secondAttribute="bottom" constant="8" symbolic="YES" id="jae-P3-LOM"/>
+                    <constraint firstItem="5ui-3p-DdS" firstAttribute="leading" secondItem="dBF-N2-1wt" secondAttribute="trailing" constant="18" id="ksy-M1-e9P"/>
+                    <constraint firstItem="zng-Ku-YRl" firstAttribute="trailing" secondItem="XeC-oa-EiD" secondAttribute="trailing" id="l3m-qd-1Xu"/>
+                    <constraint firstAttribute="trailing" secondItem="ckD-Qe-k8M" secondAttribute="trailing" constant="20" symbolic="YES" id="lcN-pZ-oMI"/>
+                    <constraint firstItem="XeC-oa-EiD" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="mbv-ex-NLO"/>
+                    <constraint firstItem="zng-Ku-YRl" firstAttribute="top" secondItem="XeC-oa-EiD" secondAttribute="bottom" id="t8Y-d4-0ZQ"/>
+                    <constraint firstItem="rhy-1B-SYh" firstAttribute="top" secondItem="zng-Ku-YRl" secondAttribute="bottom" constant="20" id="vxG-ZO-KW2"/>
+                    <constraint firstItem="UuZ-Bu-QIk" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="xXw-9N-D8d"/>
+                    <constraint firstItem="qYy-df-lSn" firstAttribute="top" secondItem="zfv-iZ-VYs" secondAttribute="bottom" constant="8" symbolic="YES" id="xay-qo-9fv"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="-134" y="133"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="github" width="858" height="512"/>
+        <image name="twitter" width="858" height="512"/>
+    </resources>
+</document>
