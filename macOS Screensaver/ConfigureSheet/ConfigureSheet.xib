@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="MultiClock" customModuleProvider="target">
             <connections>
+                <outlet property="dialColorWell" destination="aWw-zp-YNY" id="lw3-e8-M1x"/>
+                <outlet property="handColorWell" destination="OH3-0u-6Cx" id="ACA-1m-h0z"/>
                 <outlet property="skView" destination="bsu-hX-ffb" id="b77-GW-68Y"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="msk-9s-ld4"/>
             </connections>
@@ -85,14 +87,14 @@ DQ
                             <rect key="frame" x="3" y="3" width="190" height="60"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U7d-x2-NtY">
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U7d-x2-NtY" userLabel="Hand Options">
                                     <rect key="frame" x="17" y="16" width="129" height="25"/>
-                                    <popUpButtonCell key="cell" type="push" title="Bauhaus" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="jZW-4Y-0aL" id="waA-CY-jXG">
+                                    <popUpButtonCell key="cell" type="push" title="Modern" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="jZW-4Y-0aL" id="waA-CY-jXG">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="menu"/>
                                         <menu key="menu" id="T2N-gk-20p">
                                             <items>
-                                                <menuItem title="Bauhaus" state="on" id="jZW-4Y-0aL"/>
+                                                <menuItem title="Modern" state="on" id="jZW-4Y-0aL"/>
                                                 <menuItem title="Apple (Solid)" id="oo1-9r-kcG"/>
                                                 <menuItem title="Apple (Filled)" id="nVF-FZ-W4a"/>
                                             </items>
@@ -105,6 +107,9 @@ DQ
                                         <constraint firstAttribute="width" constant="20" id="ebR-kI-g6V"/>
                                     </constraints>
                                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="handColorWellAction:" target="-2" id="u9i-n1-I5V"/>
+                                    </connections>
                                 </colorWell>
                             </subviews>
                             <constraints>
@@ -130,13 +135,13 @@ DQ
                             <subviews>
                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NkW-0W-HiX">
                                     <rect key="frame" x="17" y="16" width="129" height="25"/>
-                                    <popUpButtonCell key="cell" type="push" title="Bauhaus (Thin)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0Te-iL-ihM" id="YUC-JF-4sh">
+                                    <popUpButtonCell key="cell" type="push" title="Ring (Thin)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0Te-iL-ihM" id="YUC-JF-4sh">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="menu"/>
                                         <menu key="menu" id="9Wc-aq-LUM">
                                             <items>
-                                                <menuItem title="Bauhaus (Thin)" state="on" id="0Te-iL-ihM"/>
-                                                <menuItem title="Bauhaus (Thick)" id="itS-9D-X1o"/>
+                                                <menuItem title="Ring (Thin)" state="on" id="0Te-iL-ihM"/>
+                                                <menuItem title="Ring (Thick)" id="itS-9D-X1o"/>
                                                 <menuItem title="Indices" id="okn-qV-Fzq"/>
                                             </items>
                                         </menu>
@@ -148,6 +153,9 @@ DQ
                                         <constraint firstAttribute="width" constant="20" id="DzZ-4A-wwb"/>
                                     </constraints>
                                     <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="dialColorWellAction:" target="-2" id="unn-yJ-r0Z"/>
+                                    </connections>
                                 </colorWell>
                             </subviews>
                             <constraints>

@@ -26,25 +26,22 @@ class ClockNode: SKNode {
     
     init(size: CGSize) {
         super.init()
-        
-        let handColor = SKColor(hue: 0, saturation: 0, brightness: 0.90, alpha: 1)
-        let faceColor = SKColor(hue: 0, saturation: 0, brightness: 0.20, alpha: 1)
-        
+    
         addChild(clockFaceNode)
         clockFaceNode.size = size
         clockFaceNode.zPosition = -1
         clockFaceNode.colorBlendFactor = 1
-        clockFaceNode.color = handColor
-        clockFaceNode.alpha = 0.1
+        clockFaceNode.color = Database.standard.dialColor
+        clockFaceNode.alpha = 1
         
         hourHandNode.colorBlendFactor = 1
-        hourHandNode.color = handColor
+        hourHandNode.color = Database.standard.handColor
         addChild(hourHandNode)
         hourHandNode.size = size
         hourHandNode.zPosition = 0
         
         minuteHandNode.colorBlendFactor = 1
-        minuteHandNode.color = handColor
+        minuteHandNode.color = Database.standard.handColor
         addChild(minuteHandNode)
         minuteHandNode.size = size
         hourHandNode.zPosition = 1

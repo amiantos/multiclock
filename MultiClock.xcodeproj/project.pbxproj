@@ -37,6 +37,12 @@
 		444CD5B62776AD0E00F51D7A /* FileGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F732927768669006D0991 /* FileGrabber.swift */; };
 		444CD5B72776AD0E00F51D7A /* ClockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C17D572773C947005E171A /* ClockController.swift */; };
 		444CD5B92776B01500F51D7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444CD5B82776B01500F51D7A /* Assets.xcassets */; };
+		44884C18278A3E5F006C8FBD /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44884C17278A3E5F006C8FBD /* Manager.swift */; };
+		44884C19278A3E5F006C8FBD /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44884C17278A3E5F006C8FBD /* Manager.swift */; };
+		44884C1A278A3E5F006C8FBD /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44884C17278A3E5F006C8FBD /* Manager.swift */; };
+		44884C1C278A3F24006C8FBD /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44884C1B278A3F24006C8FBD /* Database.swift */; };
+		44884C1D278A3F24006C8FBD /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44884C1B278A3F24006C8FBD /* Database.swift */; };
+		44884C1E278A3F24006C8FBD /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44884C1B278A3F24006C8FBD /* Database.swift */; };
 		44B5BECC2787EED100218491 /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B5BECA2787EED100218491 /* ConfigureSheet.xib */; };
 		44B5BECD2787EED100218491 /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5BECB2787EED100218491 /* ConfigureSheetController.swift */; };
 		44B5BECF2787F47A00218491 /* ClockPreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B5BECE2787F47A00218491 /* ClockPreviewScene.swift */; };
@@ -67,6 +73,8 @@
 		444CD5A92776A8DA00F51D7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		444CD5B82776B01500F51D7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		444CD5BA2776B02900F51D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		44884C17278A3E5F006C8FBD /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		44884C1B278A3F24006C8FBD /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		44B5BECA2787EED100218491 /* ConfigureSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigureSheet.xib; sourceTree = "<group>"; };
 		44B5BECB2787EED100218491 /* ConfigureSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
 		44B5BECE2787F47A00218491 /* ClockPreviewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockPreviewScene.swift; sourceTree = "<group>"; };
@@ -114,11 +122,11 @@
 		442F730B27767D6F006D0991 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				442F730527753B8F006D0991 /* Animations.swift */,
-				44C17D572773C947005E171A /* ClockController.swift */,
-				44E5F5042772BFA4007249E2 /* ClockScene.swift */,
+				44884C16278A3E3C006C8FBD /* Scene */,
 				442F730D27767E17006D0991 /* Nodes */,
 				442F730C27767DAD006D0991 /* Utilities */,
+				44884C17278A3E5F006C8FBD /* Manager.swift */,
+				44884C1B278A3F24006C8FBD /* Database.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -165,6 +173,16 @@
 				444CD5A82776A8DA00F51D7A /* LaunchScreen.storyboard */,
 			);
 			path = tvOS;
+			sourceTree = "<group>";
+		};
+		44884C16278A3E3C006C8FBD /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				442F730527753B8F006D0991 /* Animations.swift */,
+				44C17D572773C947005E171A /* ClockController.swift */,
+				44E5F5042772BFA4007249E2 /* ClockScene.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		44B5BEBB2787ED7F00218491 /* ConfigureSheet */ = {
@@ -359,6 +377,7 @@
 				442F731D27768052006D0991 /* ClockScreenSaverView.swift in Sources */,
 				44B5BED1278808B600218491 /* URLType.swift in Sources */,
 				44B5BECD2787EED100218491 /* ConfigureSheetController.swift in Sources */,
+				44884C1D278A3F24006C8FBD /* Database.swift in Sources */,
 				442F7323277681DF006D0991 /* ClockNode.swift in Sources */,
 				442F731F277681DF006D0991 /* ClusterNode.swift in Sources */,
 				442F7321277681DF006D0991 /* ClockScene.swift in Sources */,
@@ -367,6 +386,7 @@
 				442F732A27768669006D0991 /* FileGrabber.swift in Sources */,
 				442F7325277681DF006D0991 /* Textures.swift in Sources */,
 				442F7326277681DF006D0991 /* Logging.swift in Sources */,
+				44884C19278A3E5F006C8FBD /* Manager.swift in Sources */,
 				44B5BECF2787F47A00218491 /* ClockPreviewScene.swift in Sources */,
 				442F7324277681DF006D0991 /* Animations.swift in Sources */,
 			);
@@ -383,9 +403,11 @@
 				444CD5B32776AD0E00F51D7A /* ClockNode.swift in Sources */,
 				444CD5B62776AD0E00F51D7A /* FileGrabber.swift in Sources */,
 				444CD5B52776AD0E00F51D7A /* Textures.swift in Sources */,
+				44884C1A278A3E5F006C8FBD /* Manager.swift in Sources */,
 				444CD59A2776A8D800F51D7A /* AppDelegate.swift in Sources */,
 				444CD5B02776AD0E00F51D7A /* Extensions.swift in Sources */,
 				444CD5B72776AD0E00F51D7A /* ClockController.swift in Sources */,
+				44884C1E278A3F24006C8FBD /* Database.swift in Sources */,
 				444CD5B42776AD0E00F51D7A /* Logging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,9 +423,11 @@
 				442F730627753B8F006D0991 /* Animations.swift in Sources */,
 				44C17D5B2773D45C005E171A /* Extensions.swift in Sources */,
 				44E5F5182772D315007249E2 /* ClusterNode.swift in Sources */,
+				44884C18278A3E5F006C8FBD /* Manager.swift in Sources */,
 				44C17D582773C947005E171A /* ClockController.swift in Sources */,
 				44E5F5052772BFA4007249E2 /* ClockScene.swift in Sources */,
 				44E5F4FF2772BFA4007249E2 /* AppDelegate.swift in Sources */,
+				44884C1C278A3F24006C8FBD /* Database.swift in Sources */,
 				442F732B277686A7006D0991 /* FileGrabber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

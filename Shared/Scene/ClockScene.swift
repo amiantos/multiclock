@@ -11,8 +11,7 @@
 import SpriteKit
 import GameplayKit
 
-class ClockScene: SKScene {
-    
+class ClockScene: SKScene, ManagerDelegate {
     public var controller: ClockController?
     
     private var backgroundNode: SKShapeNode?
@@ -48,6 +47,10 @@ class ClockScene: SKScene {
         
         controller?.start()
 
+    }
+    
+    func updatedSettings() {
+        // Replace textures as needed
     }
     
     override func didMove(to view: SKView) {

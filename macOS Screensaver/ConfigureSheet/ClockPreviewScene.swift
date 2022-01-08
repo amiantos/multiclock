@@ -7,13 +7,17 @@
 
 import SpriteKit
 
-class ClockPreviewScene: SKScene {
+class ClockPreviewScene: SKScene, ManagerDelegate {
+    
+    let clockNode = ClockNode(size: CGSize(width: 150, height: 150))
     
     override func sceneDidLoad() {
         
         backgroundColor = .black
         
-        let clockNode = ClockNode(size: CGSize(width: 150, height: 150))
+        clockNode.minuteHandNode.color = Database.standard.handColor
+        clockNode.hourHandNode.color = Database.standard.handColor
+        
         addChild(clockNode)
         clockNode.position = CGPoint(x: 75, y: 75)
         
@@ -25,4 +29,11 @@ class ClockPreviewScene: SKScene {
             SKAction.rotate(byAngle: rotation.degreesToRadians(), duration: 48)
         ))
     }
+    
+    func updatedSettings() {
+        clockNode.minuteHandNode.color = Database.standard.handColor
+        clockNode.hourHandNode.color = Database.standard.handColor
+        clockNode.clockFaceNode.color = Database.standard.dialColor
+    }
+    
 }

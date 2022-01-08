@@ -13,7 +13,7 @@ import Cocoa
 import SpriteKit
 
 final class ConfigureSheetController: NSObject {
-//    private let manager = LSManager()
+    private let manager = Manager()
 
     // MARK: - Config Actions and Outlets
 
@@ -38,6 +38,28 @@ final class ConfigureSheetController: NSObject {
         URLType.brad.open()
     }
     
+    @IBOutlet weak var handColorWell: NSColorWell!
+    
+    @IBAction func handColorWellAction(_ sender: NSColorWell) {
+        let color = sender.color as NSColor
+        // Ensure color is in the right colorspace
+        if let normalizedCGColor = color.cgColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil),
+            let normalizedSKColor = SKColor(cgColor: normalizedCGColor) {
+            manager.setHandColor(normalizedSKColor)
+        }
+    }
+    
+    @IBOutlet weak var dialColorWell: NSColorWell!
+    
+    @IBAction func dialColorWellAction(_ sender: NSColorWell) {
+        let color = sender.color as NSColor
+        // Ensure color is in the right colorspace
+        if let normalizedCGColor = color.cgColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil),
+            let normalizedSKColor = SKColor(cgColor: normalizedCGColor) {
+            manager.setDialColor(normalizedSKColor)
+        }
+    }
+    
     // MARK: - View Setup
 
     override init() {
@@ -47,28 +69,15 @@ final class ConfigureSheetController: NSObject {
 
         if let view = self.skView {
             let scene = ClockPreviewScene(size: view.frame.size)
+            manager.delegate = scene
             skView.presentScene(scene)
         }
+        
+        loadSettings()
     }
     
-    
-
     fileprivate func loadSettings() {
-//        backgroundColorWell.color = manager.backgroundColor
-//
-//        let textColor = manager.textColor
-//        if textColor == SKColor.lightTextColor {
-//            textColorControl.selectedSegment = 1
-//        } else {
-//            textColorControl.selectedSegment = 0
-//        }
-//
-//        updateSyncLabel()
-    }
-
-    fileprivate func updateSyncLabel() {
-//        let df = DateFormatter()
-//        df.dateFormat = "yyyy-MM-dd"
-//        lastSyncTimeLabel.stringValue = "Last Update: \(df.string(from: manager.lastSyncTime))"
+        handColorWell.color = manager.handColor
+        dialColorWell.color = manager.dialColor
     }
 }
