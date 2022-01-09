@@ -12,6 +12,32 @@ MultiClock is a screensaver for macOS that displays the current time using 24 cl
 
 * [Download MultiClock v1.0 for macOS](https://amiantos.s3.amazonaws.com/multiclock-1.0.zip)
 
+## Development
+
+1. Clone the repo
+2. Open `MultiClock.xcodeproj`
+3. The 'macOS' build target allows you to preview the screensaver and control it manually. Take a look at the bottom of `ClockScene.swift` to see some keyboard shortcuts. Add your own to test out animations!
+
+### Adding Animations
+
+If you'd like to add animations to ClockSaver, the public methods on the `Animation` class make it easy--they're very similar to SKActions. For example, a sequence of animations may look like this:
+
+```swift
+queue(animations: [
+    Animation.display(pattern: inwardPointPattern),
+    Animation.wait(duration: 5),
+    Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225),
+    Animation.spinBothHandsWithDelay(by: 180, delay: 0.2),
+    Animation.currentTimeClock(),
+    Animation.wait(duration: 5),
+    Animation.positionBothHands(minuteDegrees: -225, hourDegrees: -225),
+    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+    Animation.currentTimePrint(),
+])
+```
+
+Completed animations should go in `ClockController.swift`. Bump up the `Int.random()` call and add a new `case` to the `switch`. Then submit a PR if you think the animation is cool :)
+
 ## Authors
 
 * Brad Root - [amiantos](https://github.com/amiantos)
