@@ -12,9 +12,17 @@
 import Foundation
 import SpriteKit
 
+enum ClockMode {
+    case automatic
+    case manual
+}
+
 class ClockController {
     public var clusters: [ClusterNode] = []
     public var clocks: [ClockNode] = []
+    
+    public var mode: ClockMode = .automatic
+    
     public weak var scene: SKScene?
     
     private var animationsCompleted: Int = 0
@@ -47,7 +55,9 @@ class ClockController {
     }
     
     public func start() {
-        startTimer()
+        if mode == .automatic {
+            startTimer()
+        }
     }
     
     // MARK: - Timer

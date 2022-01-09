@@ -60,6 +60,9 @@ final class ClockScreenSaverView: ScreenSaverView {
             scene.isUserInteractionEnabled = false
 
             spriteView.presentScene(scene)
+            
+            scene.controller?.mode = .automatic
+            scene.controller?.start()
         }
         super.startAnimation()
     }

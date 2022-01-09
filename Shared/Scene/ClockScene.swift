@@ -44,13 +44,11 @@ class ClockScene: SKScene, ManagerDelegate {
             x: (clockSize/2) + (clockSize * 6),
             y: frame.size.height - (clockSize / 2) - ((frame.size.height - (clockSize * 3)) / 2)
         )
-        
-        controller?.start()
 
     }
     
     func updatedSettings() {
-        // Replace textures as needed
+        // TODO: Replace textures as needed (needed for tvOS?)
     }
     
     override func didMove(to view: SKView) {
@@ -62,10 +60,18 @@ class ClockScene: SKScene, ManagerDelegate {
         if let character = event.characters {
             switch character {
             case "q":
-                controller?.showTime(string: "0941")
+                controller?.queue(animations: [
+                    Animation.printString(string: "1234"),
+                    Animation.wait(duration: 3),
+                    Animation.display(pattern: inwardPointPattern),
+                    Animation.wait(duration: 3),
+                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: -180),
+                    Animation.spinBothHands(by: 180),
+                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+                ])
             case "t":
                 controller?.showCurrentTime()
-            case "d":
+            case "w":
                 controller?.returnToMidnight()
             case "x":
                 controller?.moveAll(degrees: -45)

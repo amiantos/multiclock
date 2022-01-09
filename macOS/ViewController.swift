@@ -22,6 +22,8 @@ class ViewController: NSViewController {
         if let view = self.skView {
             let scene = ClockScene(size: view.frame.size)
             view.presentScene(scene)
+            scene.controller?.mode = .manual
+            scene.controller?.start()
         }
     }
 }
