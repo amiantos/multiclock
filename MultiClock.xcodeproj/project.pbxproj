@@ -136,7 +136,6 @@
 			children = (
 				442F732927768669006D0991 /* FileGrabber.swift */,
 				44B5BED0278808B600218491 /* URLType.swift */,
-				44E5F5152772CB87007249E2 /* Textures.swift */,
 				44C17D5A2773D45C005E171A /* Extensions.swift */,
 				442F730727759C00006D0991 /* Logging.swift */,
 			);
@@ -147,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				44E5F5082772BFA6007249E2 /* Assets.xcassets */,
+				44E5F5152772CB87007249E2 /* Textures.swift */,
 				44E5F5132772CB2D007249E2 /* ClockNode.swift */,
 				44E5F5172772D315007249E2 /* ClusterNode.swift */,
 			);

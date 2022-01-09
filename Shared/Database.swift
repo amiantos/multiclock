@@ -9,7 +9,7 @@ import SpriteKit
 
 extension SKColor {
     static let defaultHandColor = SKColor(hue: 0, saturation: 0, brightness: 0.90, alpha: 1)
-    static let defaultDialColor = SKColor(hue: 0, saturation: 0, brightness: 0.20, alpha: 1)
+    static let defaultDialColor = SKColor(hue: 0, saturation: 0, brightness: 0.05, alpha: 1)
 }
 
 struct Database {
@@ -29,8 +29,8 @@ struct Database {
         database.register(defaults: [
             Key.handColor: archiveData(SKColor.defaultHandColor),
             Key.dialColor: archiveData(SKColor.defaultDialColor),
-            Key.dialDesign: "modern-thin",
-            Key.handDesign: "modern"
+            Key.dialDesign: DialDesign.ringThin.rawValue,
+            Key.handDesign: HandDesign.modern.rawValue
         ])
         
         return database
@@ -49,12 +49,12 @@ extension UserDefaults {
         return unarchiveColor(data(forKey: Database.Key.dialColor)!)
     }
     
-    var handDesign: String {
-        return string(forKey: Database.Key.handDesign)!
+    var handDesign: HandDesign {
+        return HandDesign(rawValue: string(forKey: Database.Key.handDesign)!) ?? .modern
     }
     
-    var dialDesign: String {
-        return string(forKey: Database.Key.dialDesign)!
+    var dialDesign: DialDesign {
+        return DialDesign(rawValue: string(forKey: Database.Key.dialDesign)!) ?? .ringThin
     }
     
     // Setters
@@ -67,12 +67,12 @@ extension UserDefaults {
         set(archiveData(dialColor), for: Database.Key.dialColor)
     }
     
-    func set(handDesign: String) {
-        set(handDesign, for: Database.Key.handDesign)
+    func set(handDesign: HandDesign) {
+        set(handDesign.rawValue, for: Database.Key.handDesign)
     }
     
-    func set(dialDesign: String) {
-        set(dialDesign, for: Database.Key.dialDesign)
+    func set(dialDesign: DialDesign) {
+        set(dialDesign.rawValue, for: Database.Key.dialDesign)
     }
 }
 

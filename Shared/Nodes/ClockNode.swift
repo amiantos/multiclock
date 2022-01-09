@@ -16,9 +16,9 @@ class ClockNode: SKNode {
     private var minuteRotation: CGFloat = 0
     private var hourRotation: CGFloat = 0
     
-    public let hourHandNode: SKSpriteNode = SKSpriteNode(texture: hourHandTexture)
-    public let minuteHandNode: SKSpriteNode = SKSpriteNode(texture: minuteHandTexture)
-    public let clockFaceNode: SKSpriteNode = SKSpriteNode(texture: clockFaceTexture)
+    public let hourHandNode: SKSpriteNode = SKSpriteNode(texture: handTextures[Database.standard.handDesign]?.hourHandTexture)
+    public let minuteHandNode: SKSpriteNode = SKSpriteNode(texture: handTextures[Database.standard.handDesign]?.minuteHandTexture)
+    public let clockFaceNode: SKSpriteNode = SKSpriteNode(texture: dialTextures[Database.standard.dialDesign]!)
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -29,7 +29,7 @@ class ClockNode: SKNode {
     
         addChild(clockFaceNode)
         clockFaceNode.size = size
-        clockFaceNode.zPosition = -1
+        clockFaceNode.zPosition = 2
         clockFaceNode.colorBlendFactor = 1
         clockFaceNode.color = Database.standard.dialColor
         clockFaceNode.alpha = 1

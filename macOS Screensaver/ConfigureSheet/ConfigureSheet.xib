@@ -8,7 +8,9 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="MultiClock" customModuleProvider="target">
             <connections>
                 <outlet property="dialColorWell" destination="aWw-zp-YNY" id="lw3-e8-M1x"/>
+                <outlet property="dialSwitcher" destination="NkW-0W-HiX" id="b3W-BW-FqY"/>
                 <outlet property="handColorWell" destination="OH3-0u-6Cx" id="ACA-1m-h0z"/>
+                <outlet property="handSwitcher" destination="U7d-x2-NtY" id="2Rj-Qx-zBM"/>
                 <outlet property="skView" destination="bsu-hX-ffb" id="b77-GW-68Y"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="msk-9s-ld4"/>
             </connections>
@@ -95,11 +97,20 @@ DQ
                                         <menu key="menu" id="T2N-gk-20p">
                                             <items>
                                                 <menuItem title="Modern" state="on" id="jZW-4Y-0aL"/>
-                                                <menuItem title="Apple (Solid)" id="oo1-9r-kcG"/>
-                                                <menuItem title="Apple (Filled)" id="nVF-FZ-W4a"/>
+                                                <menuItem title="Modern (Thin)" tag="1" id="rCx-dm-2Id" userLabel="Modern (Thin)">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="Apple (Solid)" tag="2" id="oo1-9r-kcG"/>
+                                                <menuItem title="Apple (Filled)" tag="3" id="nVF-FZ-W4a"/>
+                                                <menuItem title="Shout" tag="4" id="n0A-4n-uEB">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
                                             </items>
                                         </menu>
                                     </popUpButtonCell>
+                                    <connections>
+                                        <action selector="handSwitcherAction:" target="-2" id="Nca-t9-KTc"/>
+                                    </connections>
                                 </popUpButton>
                                 <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="OH3-0u-6Cx">
                                     <rect key="frame" x="150" y="20" width="20" height="20"/>
@@ -141,11 +152,14 @@ DQ
                                         <menu key="menu" id="9Wc-aq-LUM">
                                             <items>
                                                 <menuItem title="Ring (Thin)" state="on" id="0Te-iL-ihM"/>
-                                                <menuItem title="Ring (Thick)" id="itS-9D-X1o"/>
-                                                <menuItem title="Indices" id="okn-qV-Fzq"/>
+                                                <menuItem title="Ring (Thick)" tag="1" id="itS-9D-X1o"/>
+                                                <menuItem title="Indices" tag="2" id="okn-qV-Fzq"/>
                                             </items>
                                         </menu>
                                     </popUpButtonCell>
+                                    <connections>
+                                        <action selector="dialSwitcherAction:" target="-2" id="Pwq-JG-z1o"/>
+                                    </connections>
                                 </popUpButton>
                                 <colorWell translatesAutoresizingMaskIntoConstraints="NO" id="aWw-zp-YNY">
                                     <rect key="frame" x="150" y="20" width="20" height="20"/>

@@ -34,6 +34,11 @@ class ClockPreviewScene: SKScene, ManagerDelegate {
         clockNode.minuteHandNode.color = Database.standard.handColor
         clockNode.hourHandNode.color = Database.standard.handColor
         clockNode.clockFaceNode.color = Database.standard.dialColor
+        
+        clockNode.minuteHandNode.texture = handTextures[Database.standard.handDesign]?.minuteHandTexture
+        clockNode.hourHandNode.texture = handTextures[Database.standard.handDesign]?.hourHandTexture
+        
+        clockNode.clockFaceNode.texture = dialTextures[Database.standard.dialDesign]!
     }
     
 }

@@ -16,8 +16,8 @@ final class Manager {
     
     private(set) var handColor: SKColor
     private(set) var dialColor: SKColor
-    private(set) var handDesign: String
-    private(set) var dialDesign: String
+    private(set) var handDesign: HandDesign
+    private(set) var dialDesign: DialDesign
     
     init() {
         handColor = Database.standard.handColor
@@ -38,13 +38,13 @@ final class Manager {
         delegate?.updatedSettings()
     }
     
-    func setHandDesign(_ string: String) {
-        Database.standard.set(handDesign: string)
+    func setHandDesign(_ handDesign: HandDesign) {
+        Database.standard.set(handDesign: handDesign)
         delegate?.updatedSettings()
     }
     
-    func setDialDesign(_ string: String) {
-        Database.standard.set(dialDesign: string)
+    func setDialDesign(_ dialDesign: DialDesign) {
+        Database.standard.set(dialDesign: dialDesign)
         delegate?.updatedSettings()
     }
 }
