@@ -38,6 +38,8 @@ queue(animations: [
 
 Completed animations should go in `ClockController.swift`. Bump up the `Int.random()` call and add a new `case` to the `switch`. Then submit a PR if you think the animation is cool :)
 
+*Why are all the degree references in negative?* Because I'm too lazy to go back and make them positive after reworking the animation system. Submit a PR fixing it, if you want!
+
 ## Authors
 
 * Brad Root - [amiantos](https://github.com/amiantos)
