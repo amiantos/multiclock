@@ -1,6 +1,6 @@
 # MultiClock
 
-MultiClock is a screensaver for macOS that displays the current time using 24 different clocks. MultiClock is very configurable, with a variety of hand and dial styles and the ability to customize the color of each independently.
+MultiClock is a screensaver for macOS that displays the current time using 24 clocks. MultiClock is very configurable, with a variety of hand and dial styles and the ability to customize the color of each independently.
 
 ## Preview
 
@@ -10,7 +10,7 @@ MultiClock is a screensaver for macOS that displays the current time using 24 di
 
 ## Download
 
-### 👉 [Download MultiClock v1.0 for macOS](https://amiantos.s3.amazonaws.com/multiclock-1.0.zip)
+* [Download MultiClock v1.0 for macOS](https://amiantos.s3.amazonaws.com/multiclock-1.0.zip)
 
 ## Authors
 
