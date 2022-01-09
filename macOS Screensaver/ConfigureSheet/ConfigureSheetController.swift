@@ -61,6 +61,8 @@ final class ConfigureSheetController: NSObject {
             manager.setDialDesign(.ringThick)
         case 2:
             manager.setDialDesign(.indices)
+        case 3:
+            manager.setDialDesign(.cutOff)
         default:
             manager.setDialDesign(.ringThin)
         }
@@ -116,6 +118,8 @@ final class ConfigureSheetController: NSObject {
             dialSwitcher.selectItem(at: 1)
         case .indices:
             dialSwitcher.selectItem(at: 2)
+        case .cutOff:
+            dialSwitcher.selectItem(at: 3)
         }
         
         switch manager.handDesign {

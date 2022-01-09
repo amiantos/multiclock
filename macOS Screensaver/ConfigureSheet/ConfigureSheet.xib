@@ -154,6 +154,9 @@ DQ
                                                 <menuItem title="Ring (Thin)" state="on" id="0Te-iL-ihM"/>
                                                 <menuItem title="Ring (Thick)" tag="1" id="itS-9D-X1o"/>
                                                 <menuItem title="Indices" tag="2" id="okn-qV-Fzq"/>
+                                                <menuItem title="Cut Off" tag="3" id="bgd-t3-XoW">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
                                             </items>
                                         </menu>
                                     </popUpButtonCell>

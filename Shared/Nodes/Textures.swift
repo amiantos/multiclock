@@ -22,6 +22,7 @@ enum DialDesign: String {
     case ringThin = "ringThin"
     case ringThick = "ringThick"
     case indices = "indices"
+    case cutOff = "cufOff"
 }
 
 struct HandTextureSet {
@@ -55,5 +56,6 @@ let handTextures: [HandDesign: HandTextureSet] = [
 let dialTextures: [DialDesign: SKTexture?] = [
     .ringThin: FileGrabber.shared.getSKTexture(named: "ringThinDial"),
     .ringThick: FileGrabber.shared.getSKTexture(named: "ringThickDial"),
-    .indices: FileGrabber.shared.getSKTexture(named: "indicesDial")
+    .indices: FileGrabber.shared.getSKTexture(named: "indicesDial"),
+    .cutOff: FileGrabber.shared.getSKTexture(named: "cutOffDial")
 ]
