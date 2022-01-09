@@ -109,7 +109,7 @@ class ClockController {
             case 4:
                 // inward pointing pattern
                 queue(animations: [
-                    Animation.display(pattern: testPattern),
+                    Animation.display(pattern: inwardPointPattern),
                     Animation.wait(duration: 5),
                     Animation.spinBothHands(by: 360),
                     Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),

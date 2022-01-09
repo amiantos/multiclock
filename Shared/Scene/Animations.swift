@@ -319,7 +319,7 @@ class Animation {
     }
 }
 
-let testPattern: [Int: [(CGFloat, CGFloat)]] = [
+let inwardPointPattern: [Int: [(CGFloat, CGFloat)]] = [
     0: [
         (-105, -105), (-115, -115),
         (-90, -90), (-90, -90),
