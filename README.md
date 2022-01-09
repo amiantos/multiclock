@@ -16,7 +16,7 @@ MultiClock is a screensaver for macOS that displays the current time using 24 cl
 
 *What about 24-hour time support?*
 
-If you have macOS set to 24-hour time, the screensaver will automatically use 24-hour time as well.
+If you have macOS set to 24-hour time, the screensaver will automatically use 24-hour time as well. (Well, it's [supposed to, anyway](https://github.com/amiantos/multiclock/issues/2)...)
 
 ## Development
 
