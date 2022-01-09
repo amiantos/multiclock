@@ -21,7 +21,7 @@ final class ClockScreenSaverView: ScreenSaverView {
     lazy var sheetController: ConfigureSheetController = ConfigureSheetController()
 
     override init?(frame: NSRect, isPreview: Bool) {
-        Log.logLevel = .debug
+        Log.logLevel = .off
         Log.debug("Launching...")
         super.init(frame: frame, isPreview: isPreview)
         animationTimeInterval = 1.0
