@@ -20,6 +20,7 @@ enum HandDesign: String {
 
 enum DialDesign: String {
     case ringThin = "ringThin"
+    case ringIndices = "ringIndices"
     case ringThick = "ringThick"
     case indices = "indices"
     case cutOff = "cufOff"
@@ -55,6 +56,7 @@ let handTextures: [HandDesign: HandTextureSet] = [
 
 let dialTextures: [DialDesign: SKTexture?] = [
     .ringThin: FileGrabber.shared.getSKTexture(named: "ringThinDial"),
+    .ringIndices: FileGrabber.shared.getSKTexture(named: "ringIndicesDial"),
     .ringThick: FileGrabber.shared.getSKTexture(named: "ringThickDial"),
     .indices: FileGrabber.shared.getSKTexture(named: "indicesDial"),
     .cutOff: FileGrabber.shared.getSKTexture(named: "cutOffDial")

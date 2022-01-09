@@ -61,6 +61,8 @@ class ClockScene: SKScene, ManagerDelegate {
     override func keyUp(with event: NSEvent) {
         if let character = event.characters {
             switch character {
+            case "q":
+                controller?.showTime(string: "0941")
             case "t":
                 controller?.showCurrentTime()
             case "d":

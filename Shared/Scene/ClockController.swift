@@ -210,6 +210,10 @@ class ClockController {
         queue(animations: [Animation.currentTimePrint()])
     }
     
+    public func showTime(string: String) {
+        queue(animations: [Animation.printString(string: string)])
+    }
+    
     public func returnToMidnight() {
         queue(animations: [Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
     }

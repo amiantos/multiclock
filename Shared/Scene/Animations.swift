@@ -19,6 +19,7 @@ enum AnimationTypes {
     case currentTimeClock
     case wait
     case displayPattern
+    case print
 }
 
 class Animation {
@@ -30,6 +31,7 @@ class Animation {
     private var hourDegrees: CGFloat = 0.0
     private var delay: TimeInterval = 0
     private var pattern: [Int: [(CGFloat, CGFloat)]] = [:]
+    private var string: String = "0000"
     
     init(animation: AnimationTypes) {
         animationType = animation
@@ -52,6 +54,8 @@ class Animation {
             return spinBothHandsWithDelay(clusters: clusters)
         case .displayPattern:
             return displayPattern(clusters: clusters)
+        case .print:
+            return print(clusters: clusters)
         }
         
     }
@@ -79,6 +83,24 @@ class Animation {
         clocks.forEach { clock in
             actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: self.minuteDegrees, hourDegrees: self.hourDegrees))
         }
+        return SKAction.group(actions)
+    }
+    
+    private func print(clusters: [ClusterNode]) -> SKAction {
+        var actions: [SKAction] = []
+        
+        let array = string.map(String.init)
+        
+        for (index, cluster) in clusters.enumerated() {
+            if let numberConfig = numberConfigs[Int(array[index])!] {
+                for (index, item) in numberConfig.enumerated() {
+                    let clock = cluster.clocks[index]
+                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0))
+                }
+            }
+            
+        }
+        
         return SKAction.group(actions)
     }
     
@@ -253,6 +275,12 @@ class Animation {
     static func spinBothHands(by degrees: CGFloat) -> Animation {
         let animation = Animation(animation: .spinBothHands)
         animation.degrees = degrees
+        return animation
+    }
+    
+    static func printString(string: String) -> Animation {
+        let animation = Animation(animation: .print)
+        animation.string = string
         return animation
     }
     
