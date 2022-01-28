@@ -75,6 +75,9 @@ class ClockController {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hhmm"
+        if Date.is24Hour() {
+            dateFormatter.dateFormat = "HHmm"
+        }
         let timeString = dateFormatter.string(from: date)
         
         timeSinceLastAnimation += 1
