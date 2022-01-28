@@ -78,7 +78,7 @@ extension UserDefaults {
     }
     
     func set(backgroundColor: SKColor) {
-        set(archiveData(dialColor), for: Database.Key.backgroundColor)
+        set(archiveData(backgroundColor), for: Database.Key.backgroundColor)
     }
     
     func set(handDesign: HandDesign) {
