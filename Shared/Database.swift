@@ -13,12 +13,14 @@ import SpriteKit
 extension SKColor {
     static let defaultHandColor = SKColor(hue: 0, saturation: 0, brightness: 0.90, alpha: 1)
     static let defaultDialColor = SKColor(hue: 0, saturation: 0, brightness: 0.05, alpha: 1)
+    static let defaultBackgroundColor = SKColor(hue: 0, saturation: 0, brightness: 0, alpha: 1)
 }
 
 struct Database {
     fileprivate enum Key {
         static let handColor = "multiClockHandColor"
         static let dialColor = "multiClockDialColor"
+        static let backgroundColor = "multiClockBackgroundColor"
         static let handDesign = "multiClockHandDesign"
         static let dialDesign = "multiClockDialDesign"
     }
@@ -32,6 +34,7 @@ struct Database {
         database.register(defaults: [
             Key.handColor: archiveData(SKColor.defaultHandColor),
             Key.dialColor: archiveData(SKColor.defaultDialColor),
+            Key.backgroundColor: archiveData(SKColor.defaultBackgroundColor),
             Key.dialDesign: DialDesign.ringThin.rawValue,
             Key.handDesign: HandDesign.modern.rawValue
         ])
@@ -52,6 +55,10 @@ extension UserDefaults {
         return unarchiveColor(data(forKey: Database.Key.dialColor)!)
     }
     
+    var backgroundColor: SKColor {
+        return unarchiveColor(data(forKey: Database.Key.backgroundColor)!)
+    }
+    
     var handDesign: HandDesign {
         return HandDesign(rawValue: string(forKey: Database.Key.handDesign)!) ?? .modern
     }
@@ -68,6 +75,10 @@ extension UserDefaults {
     
     func set(dialColor: SKColor) {
         set(archiveData(dialColor), for: Database.Key.dialColor)
+    }
+    
+    func set(backgroundColor: SKColor) {
+        set(archiveData(backgroundColor), for: Database.Key.backgroundColor)
     }
     
     func set(handDesign: HandDesign) {

@@ -93,6 +93,17 @@ final class ConfigureSheetController: NSObject {
         }
     }
     
+    @IBOutlet weak var backgroundColorWell: NSColorWell!
+    
+    @IBAction func backgroundColorWellAction(_ sender: NSColorWell) {
+        let color = sender.color as NSColor
+        // Ensure color is in the right colorspace
+        if let normalizedCGColor = color.cgColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil),
+            let normalizedSKColor = SKColor(cgColor: normalizedCGColor) {
+            manager.setBackgroundColor(normalizedSKColor)
+        }
+    }
+    
     // MARK: - View Setup
 
     override init() {
@@ -112,6 +123,7 @@ final class ConfigureSheetController: NSObject {
     fileprivate func loadSettings() {
         handColorWell.color = manager.handColor
         dialColorWell.color = manager.dialColor
+        backgroundColorWell.color = manager.backgroundColor
         
         switch manager.dialDesign {
         case .ringThin:
