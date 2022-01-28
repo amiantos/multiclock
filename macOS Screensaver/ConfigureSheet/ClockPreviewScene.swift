@@ -12,7 +12,7 @@ import SpriteKit
 
 class ClockPreviewScene: SKScene, ManagerDelegate {
     
-    let clockNode = ClockNode(size: CGSize(width: 150, height: 150))
+    let clockNode = ClockNode(size: CGSize(width: 240, height: 240))
     
     override func sceneDidLoad() {
         
@@ -22,7 +22,7 @@ class ClockPreviewScene: SKScene, ManagerDelegate {
         clockNode.hourHandNode.color = Database.standard.handColor
         
         addChild(clockNode)
-        clockNode.position = CGPoint(x: 75, y: 75)
+        clockNode.position = CGPoint(x: 120, y: 120)
         
         let rotation: CGFloat = -360
         clockNode.minuteHandNode.run(SKAction.repeatForever(
