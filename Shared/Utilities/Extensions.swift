@@ -28,5 +28,10 @@ extension Date {
         let t = calendar.component(type, from: self)
         return (t < 10 ? "0\(t)" : t.description)
     }
+    
+    static func is24Hour() -> Bool {
+        let dateFormat = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: Locale.current)!
+        return dateFormat.firstIndex(of: "a") == nil
+    }
 }
 
