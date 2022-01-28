@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ConfigureSheetController" customModule="MultiClock" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundColorWell" destination="MYh-nh-0YE" id="kfi-oF-qtW"/>
                 <outlet property="dialColorWell" destination="aWw-zp-YNY" id="lw3-e8-M1x"/>
                 <outlet property="dialSwitcher" destination="NkW-0W-HiX" id="b3W-BW-FqY"/>
                 <outlet property="handColorWell" destination="OH3-0u-6Cx" id="ACA-1m-h0z"/>
@@ -273,6 +275,14 @@ DQ
                         </constraints>
                         <color key="borderColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                     </box>
+                    <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-nh-0YE">
+                        <rect key="frame" x="112" y="238" width="44" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="backgroundColorWellAction:" target="-2" id="nIq-BA-uA4"/>
+                        </connections>
+                    </colorWell>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="zfF-7U-pGr" secondAttribute="trailing" constant="20" symbolic="YES" id="3Dr-zT-bZ5"/>

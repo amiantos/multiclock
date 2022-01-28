@@ -16,7 +16,7 @@ class ClockPreviewScene: SKScene, ManagerDelegate {
     
     override func sceneDidLoad() {
         
-        backgroundColor = .black
+        backgroundColor = Database.standard.backgroundColor
         
         clockNode.minuteHandNode.color = Database.standard.handColor
         clockNode.hourHandNode.color = Database.standard.handColor
@@ -37,6 +37,8 @@ class ClockPreviewScene: SKScene, ManagerDelegate {
         clockNode.minuteHandNode.color = Database.standard.handColor
         clockNode.hourHandNode.color = Database.standard.handColor
         clockNode.clockFaceNode.color = Database.standard.dialColor
+        
+        backgroundColor = Database.standard.backgroundColor
         
         clockNode.minuteHandNode.texture = handTextures[Database.standard.handDesign]?.minuteHandTexture
         clockNode.hourHandNode.texture = handTextures[Database.standard.handDesign]?.hourHandTexture
