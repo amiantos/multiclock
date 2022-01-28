@@ -95,6 +95,18 @@ class ClockScene: SKScene, ManagerDelegate {
             }
         }
     }
+    
+    /// without this, it beeps on every keystroke, recognized or not.
+    override func keyDown(with event: NSEvent) {
+        if let character = event.characters {
+          switch character {
+          case "c","o","p","q","r","t","w":
+            break
+          default:
+            super.keyDown(with: event)
+          }
+        }
+    }
 #endif
     
 }
