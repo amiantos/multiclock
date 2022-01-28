@@ -125,8 +125,10 @@ class ClockController {
                     Animation.display(pattern: inwardPointPattern),
                     Animation.wait(duration: 5),
                     Animation.spinBothHands(by: 360),
-                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+                    Animation.display(pattern: halfDownHalfUp),
                     Animation.spinBothHands(by: 360),
+                    Animation.positionBothHands(minuteDegrees: -180, hourDegrees: 0),
+                    Animation.spinBothHands(by: 180),
                     Animation.currentTimePrint(),
                 ])
             case 5:
