@@ -17,7 +17,7 @@ class ClockScene: SKScene, ManagerDelegate {
     private var backgroundNode: SKShapeNode?
     
     override func sceneDidLoad() {
-        backgroundColor = .black
+        backgroundColor = Database.standard.backgroundColor
         
         controller = ClockController(size: frame.size)
         controller?.scene = self

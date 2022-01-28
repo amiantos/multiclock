@@ -19,12 +19,14 @@ final class Manager {
     
     private(set) var handColor: SKColor
     private(set) var dialColor: SKColor
+    private(set) var backgroundColor: SKColor
     private(set) var handDesign: HandDesign
     private(set) var dialDesign: DialDesign
     
     init() {
         handColor = Database.standard.handColor
         dialColor = Database.standard.dialColor
+        backgroundColor = Database.standard.backgroundColor
         handDesign = Database.standard.handDesign
         dialDesign = Database.standard.dialDesign
     }
@@ -38,6 +40,11 @@ final class Manager {
     
     func setDialColor(_ color: SKColor) {
         Database.standard.set(dialColor: color)
+        delegate?.updatedSettings()
+    }
+    
+    func setBackgroundColor(_ color: SKColor) {
+        Database.standard.set(backgroundColor: color)
         delegate?.updatedSettings()
     }
     
