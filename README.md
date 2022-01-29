@@ -11,13 +11,13 @@ MultiClock is a screensaver for macOS that displays the current time using 24 cl
 
 ## Download
 
-* [Download MultiClock v1.0 for macOS](https://amiantos.s3.amazonaws.com/multiclock-1.0.zip)
+* [Download MultiClock v1.1 for macOS](https://amiantos.s3.amazonaws.com/multiclock-1.1.zip)
 
 ## FAQ
 
 *What about 24-hour time support?*
 
-If you have macOS set to 24-hour time, the screensaver will automatically use 24-hour time as well. (Well, it's [supposed to, anyway](https://github.com/amiantos/multiclock/issues/2)...)
+If you have macOS set to 24-hour time, the screensaver will automatically use 24-hour time as well.
 
 ## Development
 
@@ -43,7 +43,7 @@ queue(animations: [
 ])
 ```
 
-Completed animations should go in `ClockController.swift`. Bump up the `Int.random()` call and add a new `case` to the `switch`. Then submit a PR if you think the animation is cool :)
+Completed animations should go in `ClockController.swift`. Add another integer to `allAnimations` at the top, and add a new `case` to the `switch` down below. Then submit a PR if you think the animation is cool :)
 
 *Why are all the degree references in negative?* Because I'm too lazy to go back and make them positive after reworking the animation system. Submit a PR fixing it, if you want!
 

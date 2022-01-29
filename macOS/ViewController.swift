@@ -27,6 +27,15 @@ class ViewController: NSViewController {
             view.presentScene(scene)
             scene.controller?.mode = .manual
             scene.controller?.start()
+            
+            scene.controller?.scene?.backgroundColor = .blue
+            
+            scene.controller?.clocks.forEach({ clockNode in
+                clockNode.clockFaceNode.texture = dialTextures[.indices]!
+                clockNode.minuteHandNode.texture = handTextures[.appleWatchFilled]!.minuteHandTexture
+                clockNode.hourHandNode.texture = handTextures[.appleWatchFilled]!.hourHandTexture
+                clockNode.clockFaceNode.color = .white
+            })
         }
     }
 }

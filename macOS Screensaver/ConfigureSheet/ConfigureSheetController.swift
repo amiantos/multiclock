@@ -49,6 +49,10 @@ final class ConfigureSheetController: NSObject {
             manager.setHandDesign(.appleWatchFilled)
         case 4:
             manager.setHandDesign(.shout)
+        case 5:
+            manager.setHandDesign(.lcd)
+        case 6:
+            manager.setHandDesign(.traditional)
         default:
             manager.setHandDesign(.modern)
         }
@@ -149,6 +153,10 @@ final class ConfigureSheetController: NSObject {
             handSwitcher.selectItem(at: 3)
         case .shout:
             handSwitcher.selectItem(at: 4)
+        case .lcd:
+            handSwitcher.selectItem(at: 5)
+        case .traditional:
+            handSwitcher.selectItem(at: 6)
         }
     }
 }

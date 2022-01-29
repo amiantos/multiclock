@@ -50,7 +50,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zng-Ku-YRl">
-                        <rect key="frame" x="50" y="366" width="86" height="16"/>
+                        <rect key="frame" x="49" y="366" width="87" height="16"/>
                         <buttonCell key="cell" type="square" title="by Brad Root" bezelStyle="shadowlessSquare" alignment="right" imageScaling="proportionallyDown" inset="2" id="piz-AH-ud0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -78,8 +78,8 @@ DQ
                         <rect key="frame" x="20" y="58" width="456" height="5"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPI-vH-MTc">
-                        <rect key="frame" x="23" y="366" width="29" height="14"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.0" id="aYW-mH-qB5">
+                        <rect key="frame" x="23" y="366" width="28" height="14"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.1" id="aYW-mH-qB5">
                             <font key="font" metaFont="controlContent" size="11"/>
                             <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -105,6 +105,12 @@ DQ
                                                 <menuItem title="Apple (Solid)" tag="2" id="oo1-9r-kcG"/>
                                                 <menuItem title="Apple (Filled)" tag="3" id="nVF-FZ-W4a"/>
                                                 <menuItem title="Shout" tag="4" id="n0A-4n-uEB">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="LCD" tag="5" id="oUg-ZH-J4v">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="Traditional" tag="6" id="QKS-ym-Qs0">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                             </items>
