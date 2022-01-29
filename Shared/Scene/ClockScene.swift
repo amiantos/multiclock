@@ -70,17 +70,17 @@ class ClockScene: SKScene, ManagerDelegate {
                     Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
                 ])
             case "t":
-                controller?.showCurrentTime()
+                controller?.queue(animations: [Animation.currentTimePrint()])
             case "w":
-                controller?.returnToMidnight()
+                controller?.queue(animations: [Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
             case "x":
-                controller?.moveAll(degrees: -45)
+                controller?.queue(animations: [Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -45)])
             case "c":
-                controller?.moveAll(minuteDegrees: -45, hourDegrees: -225)
+                controller?.queue(animations: [Animation.positionBothHands(minuteDegrees: -45, hourDegrees: -225)])
             case "r":
-                controller?.setAllToCurrentTime()
+                controller?.queue(animations: [Animation.currentTimeClock()])
             case "p":
-                controller?.rotateAll(by: 360)
+                controller?.queue(animations: [Animation.spinBothHands(by: 360)])
             case "o":
                 controller?.queue(animations: [
                     Animation.display(pattern: horizontalLinesPattern),

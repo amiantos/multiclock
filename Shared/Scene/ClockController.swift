@@ -63,6 +63,11 @@ class ClockController {
             startTimer()
         }
     }
+
+    public func queue(animations: [Animation]) {
+        animationQueue.append(contentsOf: animations)
+        startAnimationQueueIfNeeded()
+    }
     
     // MARK: - Timer
     
@@ -238,11 +243,6 @@ class ClockController {
         scene?.run(actionGroup)
     }
     
-    public func queue(animations: [Animation]) {
-        animationQueue.append(contentsOf: animations)
-        startAnimationQueueIfNeeded()
-    }
-    
     private func runNextAnimation() {
         let animation =  animationQueue.removeFirst()
         run(animation)
@@ -253,41 +253,5 @@ class ClockController {
             runNextAnimation()
         }
     }
-    
-    // Helper functions for manually triggering animations
-    
-    public func showCurrentTime() {
-        queue(animations: [Animation.currentTimePrint()])
-    }
-    
-    public func showTime(string: String) {
-        queue(animations: [Animation.printString(string: string)])
-    }
-    
-    public func returnToMidnight() {
-        queue(animations: [Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
-    }
-    
-    public func moveAll(degrees: CGFloat) {
-        queue(animations: [Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees)])
-    }
-    
-    public func moveAll(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
-        queue(animations: [Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees)])
-    }
-    
-    public func setAllToCurrentTime() {
-        queue(animations: [Animation.currentTimeClock()])
-    }
-    
-    public func rotateAll(by degrees: CGFloat) {
-        queue(animations: [Animation.spinBothHands(by: degrees)])
-    }
-    
-    public func testQueue() {
-        queue(animations: [
-            Animation.spinBothHands(by: 360),
-            Animation.currentTimePrint(),
-        ])
-    }
+
 }
