@@ -110,6 +110,9 @@ DQ
                                                 <menuItem title="LCD" tag="5" id="oUg-ZH-J4v">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
+                                                <menuItem title="Traditional" tag="6" id="QKS-ym-Qs0">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
                                             </items>
                                         </menu>
                                     </popUpButtonCell>

@@ -17,6 +17,7 @@ enum HandDesign: String {
     case appleWatchFilled = "appleWatchFilled"
     case shout = "shout"
     case lcd = "lcd"
+    case traditional = "traditional"
 }
 
 enum DialDesign: String {
@@ -56,7 +57,11 @@ let handTextures: [HandDesign: HandTextureSet] = [
     .lcd: HandTextureSet(
         hourHandTexture: FileGrabber.shared.getSKTexture(named: "lcdHourHand"),
         minuteHandTexture: FileGrabber.shared.getSKTexture(named: "lcdMinuteHand")
-    )
+    ),
+    .traditional: HandTextureSet(
+        hourHandTexture: FileGrabber.shared.getSKTexture(named: "traditionalHourHand"),
+        minuteHandTexture: FileGrabber.shared.getSKTexture(named: "traditionalMinuteHand")
+    ),
 ]
 
 let dialTextures: [DialDesign: SKTexture?] = [
