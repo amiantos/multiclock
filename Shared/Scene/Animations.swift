@@ -345,6 +345,32 @@ class Animation {
             ],
         ]
     }
+    
+    static func randomizedRightAnglePattern() -> [Int: [(CGFloat, CGFloat)]] {
+        let options: [CGFloat] = [0, -90, -180, -270]
+        return [
+            0: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+            1: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+            2: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+            3: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+        ]
+    }
 }
 
 let inwardPointPattern: [Int: [(CGFloat, CGFloat)]] = [
