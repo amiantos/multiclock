@@ -98,7 +98,7 @@ class ClockController {
         } else if timeSinceLastAnimation >= 20 && !isAnimating {
             Log.debug("Displaying random animation...")
             
-            let number = Int.random(in: 1...6)
+            let number = Int.random(in: 1...7)
             switch number {
             case 1:
                 // this one is pretty cool imho
@@ -132,12 +132,21 @@ class ClockController {
                     Animation.currentTimePrint(),
                 ])
             case 5:
+                // horizontal lines pattern
                 queue(animations: [
                     Animation.display(pattern: horizontalLinesPattern),
                     Animation.wait(duration: 10),
                     Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -270),
                     Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -90),
                     Animation.positionBothHands(minuteDegrees: -180, hourDegrees: -180),
+                    Animation.currentTimePrint(),
+                ])
+            case 6:
+                // display randomized clock hand positions
+                queue(animations: [
+                    Animation.display(pattern: Animation.randomizedPattern()),
+                    Animation.wait(duration: 5),
+                    Animation.spinBothHands(by: 180),
                     Animation.currentTimePrint(),
                 ])
             default:

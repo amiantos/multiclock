@@ -320,6 +320,31 @@ class Animation {
         animation.pattern = pattern
         return animation
     }
+    
+    static func randomizedPattern() -> [Int: [(CGFloat, CGFloat)]] {
+        return [
+            0: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+            1: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+            2: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+            3: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+        ]
+    }
 }
 
 let inwardPointPattern: [Int: [(CGFloat, CGFloat)]] = [
@@ -390,6 +415,8 @@ let horizontalLinesPattern: [Int: [(CGFloat, CGFloat)]] = [
         (-270, -90), (-270, -270),
     ],
 ]
+
+// number patterns
 
 let numberConfigs: [Int: [(CGFloat, CGFloat)]] = [
     // Tuple format is (hour, minute)
