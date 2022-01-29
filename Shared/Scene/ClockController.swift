@@ -37,6 +37,10 @@ class ClockController {
     
     private var timeSinceLastAnimation: Int = 30
     
+    private var allAnimations: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9].shuffled()
+    
+    private var availableAnimations: [Int] = []
+    
     init(size: CGSize) {
         for _ in 1...4 {
             let cluster = ClusterNode(size: CGSize(width: size.width/4, height: (size.width/4/2)*3))
@@ -58,6 +62,11 @@ class ClockController {
         if mode == .automatic {
             startTimer()
         }
+    }
+
+    public func queue(animations: [Animation]) {
+        animationQueue.append(contentsOf: animations)
+        startAnimationQueueIfNeeded()
     }
     
     // MARK: - Timer
@@ -96,9 +105,13 @@ class ClockController {
                 ])
             }
         } else if timeSinceLastAnimation >= 20 && !isAnimating {
-            Log.debug("Displaying random animation...")
+            if availableAnimations.isEmpty {
+                availableAnimations = allAnimations
+            }
             
-            let number = Int.random(in: 1...6)
+            let number = availableAnimations.popLast()!
+            Log.debug("Displaying random animation \(number)...")
+
             switch number {
             case 1:
                 // this one is pretty cool imho
@@ -125,17 +138,45 @@ class ClockController {
                     Animation.display(pattern: inwardPointPattern),
                     Animation.wait(duration: 5),
                     Animation.spinBothHands(by: 360),
-                    Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0),
+                    Animation.display(pattern: halfDownHalfUp),
                     Animation.spinBothHands(by: 360),
+                    Animation.positionBothHands(minuteDegrees: -180, hourDegrees: 0),
+                    Animation.spinBothHands(by: 180),
                     Animation.currentTimePrint(),
                 ])
             case 5:
+                // horizontal lines pattern
                 queue(animations: [
                     Animation.display(pattern: horizontalLinesPattern),
                     Animation.wait(duration: 10),
                     Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -270),
                     Animation.positionBothHands(minuteDegrees: -90, hourDegrees: -90),
                     Animation.positionBothHands(minuteDegrees: -180, hourDegrees: -180),
+                    Animation.currentTimePrint(),
+                ])
+            case 6:
+                // display randomized clock hand positions
+                queue(animations: [
+                    Animation.display(pattern: Animation.randomizedPattern()),
+                    Animation.wait(duration: 5),
+                    Animation.spinBothHands(by: 180),
+                    Animation.currentTimePrint(),
+                ])
+            case 7:
+                // display randomized clock hand positions (right angles only)
+                queue(animations: [
+                    Animation.display(pattern: Animation.randomizedRightAnglePattern()),
+                    Animation.wait(duration: 5),
+                    Animation.spinBothHands(by: 180),
+                    Animation.currentTimePrint(),
+                ])
+            case 8:
+                // display box pattern
+                queue(animations: [
+                    Animation.display(pattern: boxPattern),
+                    Animation.wait(duration: 5),
+                    Animation.display(pattern: Animation.randomizedRightAnglePattern()),
+                    Animation.spinBothHands(by: 180),
                     Animation.currentTimePrint(),
                 ])
             default:
@@ -161,7 +202,7 @@ class ClockController {
         ])
 
         let newTimer = Timer(timeInterval: updateInterval, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        newTimer.tolerance = 0.2
+        newTimer.tolerance = 5
         RunLoop.main.add(newTimer, forMode: .common)
 
         timer = newTimer
@@ -202,11 +243,6 @@ class ClockController {
         scene?.run(actionGroup)
     }
     
-    public func queue(animations: [Animation]) {
-        animationQueue.append(contentsOf: animations)
-        startAnimationQueueIfNeeded()
-    }
-    
     private func runNextAnimation() {
         let animation =  animationQueue.removeFirst()
         run(animation)
@@ -217,41 +253,5 @@ class ClockController {
             runNextAnimation()
         }
     }
-    
-    // Helper functions for manually triggering animations
-    
-    public func showCurrentTime() {
-        queue(animations: [Animation.currentTimePrint()])
-    }
-    
-    public func showTime(string: String) {
-        queue(animations: [Animation.printString(string: string)])
-    }
-    
-    public func returnToMidnight() {
-        queue(animations: [Animation.positionBothHands(minuteDegrees: 0, hourDegrees: 0)])
-    }
-    
-    public func moveAll(degrees: CGFloat) {
-        queue(animations: [Animation.positionBothHands(minuteDegrees: degrees, hourDegrees: degrees)])
-    }
-    
-    public func moveAll(minuteDegrees: CGFloat, hourDegrees: CGFloat) {
-        queue(animations: [Animation.positionBothHands(minuteDegrees: minuteDegrees, hourDegrees: hourDegrees)])
-    }
-    
-    public func setAllToCurrentTime() {
-        queue(animations: [Animation.currentTimeClock()])
-    }
-    
-    public func rotateAll(by degrees: CGFloat) {
-        queue(animations: [Animation.spinBothHands(by: degrees)])
-    }
-    
-    public func testQueue() {
-        queue(animations: [
-            Animation.spinBothHands(by: 360),
-            Animation.currentTimePrint(),
-        ])
-    }
+
 }

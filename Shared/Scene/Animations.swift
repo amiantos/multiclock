@@ -320,134 +320,55 @@ class Animation {
         animation.pattern = pattern
         return animation
     }
+    
+    static func randomizedPattern() -> [Int: [(CGFloat, CGFloat)]] {
+        return [
+            0: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+            1: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+            2: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+            3: [
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+                (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))), (CGFloat(Int.random(in: -359...0)), CGFloat(Int.random(in: -359...0))),
+            ],
+        ]
+    }
+    
+    static func randomizedRightAnglePattern() -> [Int: [(CGFloat, CGFloat)]] {
+        let options: [CGFloat] = [0, -90, -180, -270]
+        return [
+            0: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+            1: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+            2: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+            3: [
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+                (options.randomElement()!, options.randomElement()!), (options.randomElement()!, options.randomElement()!),
+            ],
+        ]
+    }
 }
-
-let inwardPointPattern: [Int: [(CGFloat, CGFloat)]] = [
-    0: [
-        (-105, -105), (-115, -115),
-        (-90, -90), (-90, -90),
-        (-75, -75), (-65, -65),
-    ],
-    1: [
-        (-125, -125), (-150, -150),
-        (-90, -90), (-90, -90),
-        (-55, -55), (-30, -30),
-    ],
-    2: [
-        (-210, -210), (-235, -235),
-        (-270, -270), (-270, -270),
-        (-330, -330), (-305, -305),
-    ],
-    3: [
-        (-245, -245), (-255, -255),
-        (-270, -270), (-270, -270),
-        (-295, -295), (-285, -285),
-    ],
-]
-
-let horizontalLinesPattern: [Int: [(CGFloat, CGFloat)]] = [
-    0: [
-        (-90, -90), (-270, -90),
-        (-90, -90), (-270, -90),
-        (-90, -90), (-270, -90),
-    ],
-    1: [
-        (-270, -90), (-270, -90),
-        (-270, -90), (-270, -90),
-        (-270, -90), (-270, -90),
-    ],
-    2: [
-        (-270, -90), (-270, -90),
-        (-270, -90), (-270, -90),
-        (-270, -90), (-270, -90),
-    ],
-    3: [
-        (-270, -90), (-270, -270),
-        (-270, -90), (-270, -270),
-        (-270, -90), (-270, -270),
-    ],
-]
-
-let numberConfigs: [Int: [(CGFloat, CGFloat)]] = [
-    // Tuple format is (hour, minute)
-    0: [
-        (-90, -180),
-        (-270, -180),
-        (-180, 0),
-        (-180, 0),
-        (-90, 0),
-        (-270, 0),
-    ],
-    1: [
-        (-225, -225),
-        (-180, -180),
-        (-225, -225),
-        (-180, 0),
-        (-225, -225),
-        (0, 0)
-    ],
-    2: [
-        (-90, -90),
-        (-270, -180),
-        (-180, -90),
-        (-270, 0),
-        (0, -90),
-        (-270, -270)
-    ],
-    3: [
-        (-90, -90),
-        (-270, -180),
-        (-90, -90),
-        (0, -270),
-        (-90, -90),
-        (-270, 0)
-    ],
-    4: [
-        (-180, -180),
-        (-180, -180),
-        (0, -90),
-        (0, -180),
-        (-225, -225),
-        (0, 0)
-    ],
-    5: [
-        (-180, -90),
-        (-270, -270),
-        (0, -90),
-        (-270, -180),
-        (-90, -90),
-        (-270, 0)
-    ],
-    6: [
-        (-180, -90),
-        (-270, -270),
-        (0, -180),
-        (-270, -180),
-        (0, -90),
-        (0, -270)
-    ],
-    7: [
-        (-90, -90),
-        (-270, -180),
-        (-225, -225),
-        (-180, 0),
-        (-225, -225),
-        (0, 0)
-    ],
-    8: [
-        (-90, -180),
-        (-270, -180),
-        (-90, 0),
-        (-270, 0),
-        (0, -90),
-        (-270, 0)
-    ],
-    9: [
-        (-90, -180),
-        (-270, -180),
-        (-90, 0),
-        (0, -180),
-        (-90, -90),
-        (-270, 0)
-    ],
-]

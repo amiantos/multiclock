@@ -21,8 +21,11 @@ class ViewController: NSViewController {
 
         if let view = self.skView {
             let scene = ClockScene(size: view.frame.size)
+            view.showsFPS = true
+            view.showsDrawCount = true
+            view.showsNodeCount = true
             view.presentScene(scene)
-            scene.controller?.mode = .automatic
+            scene.controller?.mode = .manual
             scene.controller?.start()
         }
     }
