@@ -37,6 +37,10 @@ class ClockController {
     
     private var timeSinceLastAnimation: Int = 30
     
+    private var allAnimations: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9].shuffled()
+    
+    private var availableAnimations: [Int] = []
+    
     init(size: CGSize) {
         for _ in 1...4 {
             let cluster = ClusterNode(size: CGSize(width: size.width/4, height: (size.width/4/2)*3))
@@ -96,9 +100,13 @@ class ClockController {
                 ])
             }
         } else if timeSinceLastAnimation >= 20 && !isAnimating {
-            Log.debug("Displaying random animation...")
+            if availableAnimations.isEmpty {
+                availableAnimations = allAnimations
+            }
             
-            let number = Int.random(in: 1...8)
+            let number = availableAnimations.popLast()!
+            Log.debug("Displaying random animation \(number)...")
+
             switch number {
             case 1:
                 // this one is pretty cool imho
@@ -157,6 +165,15 @@ class ClockController {
                     Animation.spinBothHands(by: 180),
                     Animation.currentTimePrint(),
                 ])
+            case 8:
+                // display box pattern
+                queue(animations: [
+                    Animation.display(pattern: boxPattern),
+                    Animation.wait(duration: 5),
+                    Animation.display(pattern: Animation.randomizedRightAnglePattern()),
+                    Animation.spinBothHands(by: 180),
+                    Animation.currentTimePrint(),
+                ])
             default:
                 // delay spin with current time as clock
                 queue(animations: [
@@ -180,7 +197,7 @@ class ClockController {
         ])
 
         let newTimer = Timer(timeInterval: updateInterval, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        newTimer.tolerance = 0.2
+        newTimer.tolerance = 5
         RunLoop.main.add(newTimer, forMode: .common)
 
         timer = newTimer
