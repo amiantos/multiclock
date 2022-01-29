@@ -107,6 +107,9 @@ DQ
                                                 <menuItem title="Shout" tag="4" id="n0A-4n-uEB">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
+                                                <menuItem title="LCD" tag="5" id="oUg-ZH-J4v">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
                                             </items>
                                         </menu>
                                     </popUpButtonCell>
