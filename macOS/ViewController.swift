@@ -25,7 +25,7 @@ class ViewController: NSViewController {
             view.showsDrawCount = true
             view.showsNodeCount = true
             view.presentScene(scene)
-            scene.controller?.mode = .automatic
+            scene.controller?.mode = .manual
             scene.controller?.start()
         }
     }
