@@ -52,10 +52,6 @@ class ClockController {
         Log.useEmoji = true
         
         updateInterval = TimeInterval(1)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(animationCompleted), name: NSNotification.Name("AnimationComplete"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(setCurrentTime(_:)), name: NSNotification.Name("SetCurrentTime"), object: nil)
     }
     
     public func start() {
@@ -70,15 +66,6 @@ class ClockController {
     }
     
     // MARK: - Timer
-    
-    @objc func setCurrentTime(_ notification: NSNotification) {
-        if let time = notification.userInfo?["time"] as? String {
-            if time != lastTimeDisplayed {
-                Log.debug("New displayed time: \(time)")
-                lastTimeDisplayed = time
-            }
-        }
-    }
     
     @objc func updateTime() {
         let date = Date()
@@ -220,7 +207,7 @@ class ClockController {
     
     // MARK: - Animations
     
-    @objc func animationCompleted() {
+    private func animationCompleted() {
         timeSinceLastAnimation = 0
         animationsCompleted += 1
         if animationsCompleted == 48 {
@@ -236,8 +223,16 @@ class ClockController {
         }
     }
     
+    
+    private func setCurrentTime(time: String) {
+        if time != lastTimeDisplayed {
+            Log.debug("New displayed time: \(time)")
+            lastTimeDisplayed = time
+        }
+    }
+    
     private func run(_ animation: Animation) {
-        let actionGroup = animation.actions(clocks: clocks, clusters: clusters)
+        let actionGroup = animation.actions(clocks: clocks, clusters: clusters, completionHandler: animationCompleted, timeSetCompletionHandler: setCurrentTime)
         isAnimating = true
         timeSinceLastAnimation = 0
         scene?.run(actionGroup)
