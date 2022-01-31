@@ -60,6 +60,54 @@ class Animation {
         
     }
     
+    // Static methods for queuing animations
+    
+    static func spinBothHands(by degrees: CGFloat) -> Animation {
+        let animation = Animation(animation: .spinBothHands)
+        animation.degrees = degrees
+        return animation
+    }
+    
+    static func printString(string: String) -> Animation {
+        let animation = Animation(animation: .print)
+        animation.string = string
+        return animation
+    }
+    
+    static func currentTimePrint() -> Animation {
+        return Animation(animation: .currentTimePrint)
+    }
+    
+    static func currentTimeClock() -> Animation {
+        return Animation(animation: .currentTimeClock)
+    }
+    
+    static func wait(duration: TimeInterval) -> Animation {
+        let animation = Animation(animation: .wait)
+        animation.duration = duration
+        return animation
+    }
+    
+    static func positionBothHands(minuteDegrees: CGFloat, hourDegrees: CGFloat) -> Animation {
+        let animation = Animation(animation: .positionBothHands)
+        animation.minuteDegrees = minuteDegrees
+        animation.hourDegrees = hourDegrees
+        return animation
+    }
+    
+    static func spinBothHandsWithDelay(by degrees: CGFloat, delay: TimeInterval) -> Animation {
+        let animation = Animation(animation: .spinBothHandsWithDelay)
+        animation.degrees = degrees
+        animation.delay = delay
+        return animation
+    }
+    
+    static func display(pattern: [Int: [(CGFloat, CGFloat)]]) -> Animation {
+        let animation = Animation(animation: .displayPattern)
+        animation.pattern = pattern
+        return animation
+    }
+    
     // Animations
     
     private func wait(clocks: [ClockNode]) -> SKAction {
@@ -273,53 +321,7 @@ class Animation {
         return distanceInDegrees.degreesToRadians()
     }
     
-    // Static methods for queuing animations
-    
-    static func spinBothHands(by degrees: CGFloat) -> Animation {
-        let animation = Animation(animation: .spinBothHands)
-        animation.degrees = degrees
-        return animation
-    }
-    
-    static func printString(string: String) -> Animation {
-        let animation = Animation(animation: .print)
-        animation.string = string
-        return animation
-    }
-    
-    static func currentTimePrint() -> Animation {
-        return Animation(animation: .currentTimePrint)
-    }
-    
-    static func currentTimeClock() -> Animation {
-        return Animation(animation: .currentTimeClock)
-    }
-    
-    static func wait(duration: TimeInterval) -> Animation {
-        let animation = Animation(animation: .wait)
-        animation.duration = duration
-        return animation
-    }
-    
-    static func positionBothHands(minuteDegrees: CGFloat, hourDegrees: CGFloat) -> Animation {
-        let animation = Animation(animation: .positionBothHands)
-        animation.minuteDegrees = minuteDegrees
-        animation.hourDegrees = hourDegrees
-        return animation
-    }
-    
-    static func spinBothHandsWithDelay(by degrees: CGFloat, delay: TimeInterval) -> Animation {
-        let animation = Animation(animation: .spinBothHandsWithDelay)
-        animation.degrees = degrees
-        animation.delay = delay
-        return animation
-    }
-    
-    static func display(pattern: [Int: [(CGFloat, CGFloat)]]) -> Animation {
-        let animation = Animation(animation: .displayPattern)
-        animation.pattern = pattern
-        return animation
-    }
+    // Pattern Generators
     
     static func randomizedPattern() -> [Int: [(CGFloat, CGFloat)]] {
         return [
