@@ -53,8 +53,6 @@ class ClockController {
         
         updateInterval = TimeInterval(1)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(animationCompleted), name: NSNotification.Name("AnimationComplete"), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(setCurrentTime(_:)), name: NSNotification.Name("SetCurrentTime"), object: nil)
     }
     
@@ -237,7 +235,7 @@ class ClockController {
     }
     
     private func run(_ animation: Animation) {
-        let actionGroup = animation.actions(clocks: clocks, clusters: clusters)
+        let actionGroup = animation.actions(clocks: clocks, clusters: clusters, completionHandler: animationCompleted)
         isAnimating = true
         timeSinceLastAnimation = 0
         scene?.run(actionGroup)

@@ -37,25 +37,25 @@ class Animation {
         animationType = animation
     }
     
-    public func actions(clocks: [ClockNode], clusters: [ClusterNode]) -> SKAction {
+    public func actions(clocks: [ClockNode], clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
         
         switch animationType {
         case .spinBothHands:
-            return spinBothHands(clocks: clocks)
+            return spinBothHands(clocks: clocks, completionHandler: completionHandler)
         case .currentTimePrint:
-            return currentTimePrint(clusters: clusters)
+            return currentTimePrint(clusters: clusters, completionHandler: completionHandler)
         case .currentTimeClock:
-            return currentTimeClock(clocks: clocks)
+            return currentTimeClock(clocks: clocks, completionHandler: completionHandler)
         case .wait:
-            return wait(clocks: clocks)
+            return wait(clocks: clocks, completionHandler: completionHandler)
         case .positionBothHands:
-            return positionBothHands(clocks: clocks)
+            return positionBothHands(clocks: clocks, completionHandler: completionHandler)
         case .spinBothHandsWithDelay:
-            return spinBothHandsWithDelay(clusters: clusters)
+            return spinBothHandsWithDelay(clusters: clusters, completionHandler: completionHandler)
         case .displayPattern:
-            return displayPattern(clusters: clusters)
+            return displayPattern(clusters: clusters, completionHandler: completionHandler)
         case .print:
-            return print(clusters: clusters)
+            return print(clusters: clusters, completionHandler: completionHandler)
         }
         
     }
@@ -110,31 +110,31 @@ class Animation {
     
     // Animations
     
-    private func wait(clocks: [ClockNode]) -> SKAction {
+    private func wait(clocks: [ClockNode], completionHandler: @escaping () -> Void) -> SKAction {
         Log.debug("Waiting for \(self.duration) seconds...")
         var actions: [SKAction] = []
         clocks.forEach { clock in
             actions.append(SKAction.run {
                 let action = SKAction.wait(forDuration: self.duration)
                 clock.run(action) {
-                    NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
-                    NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+                    completionHandler()
+                    completionHandler()
                 }
             })
         }
         return SKAction.group(actions)
     }
     
-    private func positionBothHands(clocks: [ClockNode]) -> SKAction {
+    private func positionBothHands(clocks: [ClockNode], completionHandler: @escaping () -> Void) -> SKAction {
         Log.debug("Positioning minute hands to \(self.minuteDegrees), hour hands to \(self.hourDegrees)...")
         var actions: [SKAction] = []
         clocks.forEach { clock in
-            actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: self.minuteDegrees, hourDegrees: self.hourDegrees))
+            actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: self.minuteDegrees, hourDegrees: self.hourDegrees, completionHandler: completionHandler))
         }
         return SKAction.group(actions)
     }
     
-    private func print(clusters: [ClusterNode]) -> SKAction {
+    private func print(clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
         var actions: [SKAction] = []
         
         let array = string.map(String.init)
@@ -143,7 +143,7 @@ class Animation {
             if let numberConfig = numberConfigs[Int(array[index])!] {
                 for (index, item) in numberConfig.enumerated() {
                     let clock = cluster.clocks[index]
-                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0))
+                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0, completionHandler: completionHandler))
                 }
             }
             
@@ -152,7 +152,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func currentTimePrint(clusters: [ClusterNode]) -> SKAction {
+    private func currentTimePrint(clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hhmm"
@@ -170,7 +170,7 @@ class Animation {
             if let numberConfig = numberConfigs[Int(array[index])!] {
                 for (index, item) in numberConfig.enumerated() {
                     let clock = cluster.clocks[index]
-                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0))
+                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0, completionHandler: completionHandler))
                 }
             }
             
@@ -181,7 +181,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func currentTimeClock(clocks: [ClockNode]) -> SKAction {
+    private func currentTimeClock(clocks: [ClockNode], completionHandler: @escaping () -> Void) -> SKAction {
         Log.debug("Displaying current time as clocks...")
         let date = Date()
         let minute = Int(date.get(.minute))!
@@ -193,21 +193,21 @@ class Animation {
         
         var actions: [SKAction] = []
         clocks.forEach { clock in
-            actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: -CGFloat(((360/60)*minute)), hourDegrees: -CGFloat(((360/12)*hourFloat))))
+            actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: -CGFloat(((360/60)*minute)), hourDegrees: -CGFloat(((360/12)*hourFloat)), completionHandler: completionHandler))
         }
         return SKAction.group(actions)
     }
     
-    private func spinBothHands(clocks: [ClockNode]) -> SKAction {
+    private func spinBothHands(clocks: [ClockNode], completionHandler: @escaping () -> Void) -> SKAction {
         Log.debug("Spinning all hands \(self.degrees) degrees...")
         var actions: [SKAction] = []
         clocks.forEach { clock in
-            actions.append(getActionGroupForSpin(clock: clock, degrees: self.degrees))
+            actions.append(getActionGroupForSpin(clock: clock, degrees: self.degrees, completionHandler: completionHandler))
         }
         return SKAction.group(actions)
     }
     
-    private func spinBothHandsWithDelay(clusters: [ClusterNode]) -> SKAction {
+    private func spinBothHandsWithDelay(clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
         Log.debug("Spinning all hands \(self.degrees) degrees, with \(self.delay) seconds delay...")
         var actions: [SKAction] = []
         var currentDelay: TimeInterval = 0
@@ -215,9 +215,9 @@ class Animation {
         clusters.forEach { cluster in
             
             var clockActions: [SKAction] = []
-            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[0], degrees: self.degrees))
-            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[2], degrees: self.degrees))
-            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[4], degrees: self.degrees))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[0], degrees: self.degrees, completionHandler: completionHandler))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[2], degrees: self.degrees, completionHandler: completionHandler))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[4], degrees: self.degrees, completionHandler: completionHandler))
             
             actions.append(SKAction.sequence([
                 SKAction.wait(forDuration: currentDelay),
@@ -228,9 +228,9 @@ class Animation {
             
             clockActions.removeAll()
             
-            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[1], degrees: self.degrees))
-            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[3], degrees: self.degrees))
-            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[5], degrees: self.degrees))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[1], degrees: self.degrees, completionHandler: completionHandler))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[3], degrees: self.degrees, completionHandler: completionHandler))
+            clockActions.append(getActionGroupForSpin(clock: cluster.clocks[5], degrees: self.degrees, completionHandler: completionHandler))
             
             actions.append(SKAction.sequence([
                 SKAction.wait(forDuration: currentDelay),
@@ -242,7 +242,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func displayPattern(clusters: [ClusterNode]) -> SKAction {
+    private func displayPattern(clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
         Log.debug("Displaying pattern...")
         
         var actions: [SKAction] = []
@@ -251,7 +251,7 @@ class Animation {
             if let patternConfig = self.pattern[index] {
                 for (index, item) in patternConfig.enumerated() {
                     let clock = cluster.clocks[index]
-                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0))
+                    actions.append(getActionGroupForPosition(clock: clock, minuteDegrees: item.1, hourDegrees: item.0, completionHandler: completionHandler))
                 }
             }
             
@@ -262,14 +262,14 @@ class Animation {
     
     // Utils
     
-    private func getActionGroupForPosition(clock: ClockNode, minuteDegrees: CGFloat, hourDegrees: CGFloat) -> SKAction {
+    private func getActionGroupForPosition(clock: ClockNode, minuteDegrees: CGFloat, hourDegrees: CGFloat, completionHandler: @escaping () -> Void) -> SKAction {
         let radianDifference = getRadianDifference(startDegrees: clock.minuteHandNode.zRotation.radiansToDegrees(), endDegrees: -minuteDegrees)
         let duration = radianDifference / movementSpeed
         
         let minuteHandAction = SKAction.run {
             let action = SKAction.rotate(byAngle: -radianDifference, duration: duration)
             clock.minuteHandNode.run(action) {
-                NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+                completionHandler()
             }
         }
 
@@ -279,27 +279,27 @@ class Animation {
         let hourHandAction = SKAction.run {
             let action = SKAction.rotate(byAngle: -radianDifferenceHour, duration: durationHour)
             clock.hourHandNode.run(action) {
-                NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+                completionHandler()
             }
         }
         
         return SKAction.group([minuteHandAction, hourHandAction])
     }
     
-    private func getActionGroupForSpin(clock: ClockNode, degrees: CGFloat) -> SKAction {
+    private func getActionGroupForSpin(clock: ClockNode, degrees: CGFloat, completionHandler: @escaping () -> Void) -> SKAction {
         let radians = degrees.degreesToRadians()
         let minuteHandAction = SKAction.run {
             let action = SKAction.rotate(byAngle: -radians, duration: radians / self.movementSpeed)
 
             clock.minuteHandNode.run(action) {
-                NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+                completionHandler()
             }
         }
         let hourHandAction = SKAction.run {
             let action = SKAction.rotate(byAngle: -radians, duration: radians / self.movementSpeed)
 
             clock.hourHandNode.run(action) {
-                NotificationCenter.default.post(name: NSNotification.Name("AnimationComplete"), object: nil)
+                completionHandler()
             }
         }
         return SKAction.group([minuteHandAction, hourHandAction])
