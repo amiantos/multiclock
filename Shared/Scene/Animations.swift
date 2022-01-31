@@ -37,13 +37,13 @@ class Animation {
         animationType = animation
     }
     
-    public func actions(clocks: [ClockNode], clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
+    public func actions(clocks: [ClockNode], clusters: [ClusterNode], completionHandler: @escaping () -> Void, timeSetCompletionHandler: @escaping (String) -> Void) -> SKAction {
         
         switch animationType {
         case .spinBothHands:
             return spinBothHands(clocks: clocks, completionHandler: completionHandler)
         case .currentTimePrint:
-            return currentTimePrint(clusters: clusters, completionHandler: completionHandler)
+            return currentTimePrint(clusters: clusters, completionHandler: completionHandler, timeSetCompletionHandler: timeSetCompletionHandler)
         case .currentTimeClock:
             return currentTimeClock(clocks: clocks, completionHandler: completionHandler)
         case .wait:
@@ -152,7 +152,7 @@ class Animation {
         return SKAction.group(actions)
     }
     
-    private func currentTimePrint(clusters: [ClusterNode], completionHandler: @escaping () -> Void) -> SKAction {
+    private func currentTimePrint(clusters: [ClusterNode], completionHandler: @escaping () -> Void, timeSetCompletionHandler: @escaping (String) -> Void) -> SKAction {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hhmm"
@@ -176,7 +176,7 @@ class Animation {
             
         }
         
-        NotificationCenter.default.post(name: NSNotification.Name("SetCurrentTime"), object: nil, userInfo: ["time": timeString])
+        timeSetCompletionHandler(timeString)
         
         return SKAction.group(actions)
     }
