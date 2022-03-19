@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,7 +42,7 @@ DQ
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XeC-oa-EiD">
-                        <rect key="frame" x="23" y="382" width="115" height="28"/>
+                        <rect key="frame" x="23" y="382" width="142" height="28"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="MultiClock" id="A1b-ty-yQK">
                             <font key="font" metaFont="system" size="24"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -50,7 +50,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zng-Ku-YRl">
-                        <rect key="frame" x="49" y="366" width="87" height="16"/>
+                        <rect key="frame" x="79" y="366" width="84" height="16"/>
                         <buttonCell key="cell" type="square" title="by Brad Root" bezelStyle="shadowlessSquare" alignment="right" imageScaling="proportionallyDown" inset="2" id="piz-AH-ud0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -78,8 +78,8 @@ DQ
                         <rect key="frame" x="20" y="58" width="456" height="5"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPI-vH-MTc">
-                        <rect key="frame" x="23" y="366" width="28" height="14"/>
-                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.1" id="aYW-mH-qB5">
+                        <rect key="frame" x="23" y="366" width="58" height="14"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="v1.2-beta" id="aYW-mH-qB5">
                             <font key="font" metaFont="controlContent" size="11"/>
                             <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -166,6 +166,9 @@ DQ
                                                 </menuItem>
                                                 <menuItem title="Indices" tag="3" id="okn-qV-Fzq"/>
                                                 <menuItem title="Cut Off" tag="4" id="bgd-t3-XoW">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="None" tag="5" id="EmF-T1-db9" userLabel="None">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                             </items>
