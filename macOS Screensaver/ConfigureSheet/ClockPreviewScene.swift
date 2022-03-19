@@ -43,7 +43,12 @@ class ClockPreviewScene: SKScene, ManagerDelegate {
         clockNode.minuteHandNode.texture = handTextures[Database.standard.handDesign]?.minuteHandTexture
         clockNode.hourHandNode.texture = handTextures[Database.standard.handDesign]?.hourHandTexture
         
-        clockNode.clockFaceNode.texture = dialTextures[Database.standard.dialDesign]!
+        if Database.standard.dialDesign != .none {
+            clockNode.clockFaceNode.texture = dialTextures[Database.standard.dialDesign]!
+            clockNode.clockFaceNode.alpha = 1
+        } else {
+            clockNode.clockFaceNode.alpha = 0
+        }
     }
     
 }
