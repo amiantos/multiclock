@@ -27,12 +27,17 @@ class ClockNode: SKNode {
     init(size: CGSize) {
         super.init()
     
+
         addChild(clockFaceNode)
         clockFaceNode.size = size
         clockFaceNode.zPosition = 2
         clockFaceNode.colorBlendFactor = 1
         clockFaceNode.color = Database.standard.dialColor
-        clockFaceNode.alpha = 1
+        if Database.standard.dialDesign != .none {
+            clockFaceNode.alpha = 1
+        } else {
+            clockFaceNode.alpha = 0
+        }
         
         hourHandNode.colorBlendFactor = 1
         hourHandNode.color = Database.standard.handColor
@@ -44,7 +49,7 @@ class ClockNode: SKNode {
         minuteHandNode.color = Database.standard.handColor
         addChild(minuteHandNode)
         minuteHandNode.size = size
-        hourHandNode.zPosition = 1
+        minuteHandNode.zPosition = 1
         
 //        clockFaceNode.run(SKAction.repeatForever(SKAction.sequence([
 //            SKAction.fadeAlpha(to: 0.1, duration: 5),
