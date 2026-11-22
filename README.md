@@ -25,6 +25,10 @@ If you have macOS set to 24-hour time, the screensaver will automatically use 24
 2. Open `MultiClock.xcodeproj`
 3. The 'macOS' build target allows you to preview the screensaver and control it manually. Take a look at the bottom of `ClockScene.swift` to see some keyboard shortcuts. Add your own to test out animations!
 
+### Windows
+
+A Windows port, written in C# with WPF, lives in the `windows` folder. See [windows/README.md](windows/README.md) for how to build and install it.
+
 ### Adding Animations
 
 If you'd like to add animations to ClockSaver, the public methods on the `Animation` class make it easy--they're very similar to SKActions. For example, a sequence of animations may look like this:
